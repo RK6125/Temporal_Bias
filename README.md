@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-Temporal Bias Analysis in Reddit Discourse (2017–2023)
+
+Temporal Bias Analysis In Reddit Discourse (2017–2023)
 
 This project analyzes shifts in social bias across major social movements from Reddit posts using multiple sentiment models (BERT, DistilBERT, VADER, TextBlob).
 
@@ -18,7 +18,7 @@ This project analyzes shifts in social bias across major social movements from R
    ```bash
    git clone https://github.com/<your-username>/Temporal-Bias-Analysis.git
    cd Temporal-Bias-Analysis
-=======
-# Temporal_Bias
-A pipeline to measure changes in social bias across different social movements through reddit posts
->>>>>>> 00a0e6e53b0bdc15ad0d2c1e603f0b3516481c27
+
+2. pip install -r requirements.txt
+
+3. python main.py
