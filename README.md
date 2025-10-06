@@ -16,8 +16,8 @@ This project analyzes shifts in social bias across major social movements from R
 ##  How to Run
 1. Clone the repo  
    ```bash
-   git clone https://github.com/<your-username>/Temporal-Bias-Analysis.git
-   cd Temporal-Bias-Analysis
+   git clone https://github.com/<your-username>/Temporal_Bias.git
+   cd Temporal_Bias
 
 2. pip install -r requirements.txt
 
