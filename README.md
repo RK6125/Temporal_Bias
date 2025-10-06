@@ -1,5 +1,5 @@
 
-#Temporal Bias Analysis In Reddit Discourse (2017–2023)
+# Temporal Bias Analysis In Reddit Discourse (2017–2023)
 
 This project analyzes shifts in social bias across major social movements from Reddit posts using multiple sentiment models (BERT, DistilBERT, VADER, TextBlob).
 
