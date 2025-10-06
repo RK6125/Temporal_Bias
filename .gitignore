@@ -1,25 +1,13 @@
-# Virtual environment and environment files
 venv/
 .env
-
-# Raw and large data folders
 data/raw/
 data/processed/
 data/results/
 data/templates/
-
-# Large individual files
 *.csv
 *.json
 *.png
 *.log
-
-# Python cache
 __pycache__/
 *.pyc
-
-# Jupyter & IDE files
-.ipynb_checkpoints/
-.vscode/
 .DS_Store
-
