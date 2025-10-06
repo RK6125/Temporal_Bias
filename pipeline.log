@@ -1,0 +1,55 @@
+2025-10-05 21:26:23,361 - INFO - 🔹 Starting: Data Collection
+2025-10-05 21:26:23,405 - ERROR -  Data Collection failed: Command '['python', 'collect_all.py']' returned non-zero exit status 2.
+2025-10-05 21:27:52,583 - INFO - 🔹 Starting: Data Collection
+2025-10-05 21:27:52,625 - ERROR -  Data Collection failed: Command '['python', 'scripts/collect_all.py']' returned non-zero exit status 2.
+2025-10-05 21:28:09,096 - INFO - 🔹 Starting: Data Collection
+2025-10-05 21:28:09,141 - ERROR -  Data Collection failed: Command '['python', 'scripts/collect_all.py']' returned non-zero exit status 2.
+2025-10-05 21:29:50,258 - INFO - 🔹 Starting: Data Collection
+2025-10-05 21:29:50,298 - ERROR -  Data Collection failed: Command '['python', 'collect_all.py']' returned non-zero exit status 2.
+2025-10-05 21:34:59,067 - ERROR - Script not found: /Users/rk/Desktop/BiasProject/collect_all.py
+2025-10-05 21:36:01,733 - INFO - Skipped: Preprocessing
+2025-10-05 21:36:21,492 - INFO - Starting: Data Collection
+2025-10-05 21:36:22,444 - ERROR - Data Collection failed: Command '['python', '/Users/rk/Desktop/BiasProject/collect_all.py']' returned non-zero exit status 1.
+2025-10-05 21:40:55,641 - INFO - Starting: Data Collection
+2025-10-05 21:40:56,606 - ERROR - Data Collection failed: Command '['python', '/Users/rk/Desktop/BiasProject/collect_all.py']' returned non-zero exit status 1.
+2025-10-05 21:50:53,792 - INFO - Starting: Data Collection
+2025-10-05 21:55:07,607 - INFO - Starting: Data Collection
+2025-10-05 22:13:53,648 - INFO - Starting: Data Collection
+2025-10-05 22:17:18,291 - INFO - Completed: Data Collection
+2025-10-05 22:23:49,988 - INFO - Skipped: Preprocessing
+2025-10-05 22:24:03,478 - INFO - Starting: Data Collection
+2025-10-05 22:24:03,898 - ERROR - Data Collection failed: Command '['python', '/Users/rk/Desktop/BiasProject/collect_all.py']' returned non-zero exit status 1.
+2025-10-05 22:25:47,590 - INFO - Starting: Data Collection
+2025-10-05 23:48:20,976 - INFO - Starting: Data Collection
+2025-10-06 00:10:48,372 - INFO - Completed: Data Collection
+2025-10-06 00:22:59,818 - INFO - Starting: Preprocessing
+2025-10-06 00:23:00,709 - INFO - Completed: Preprocessing
+2025-10-06 00:41:02,164 - INFO - Starting: Model Testing
+2025-10-06 00:41:14,477 - INFO - Completed: Model Testing
+2025-10-06 01:15:37,881 - INFO - Skipped: Data Collection
+2025-10-06 01:15:39,468 - INFO - Skipped: Preprocessing
+2025-10-06 01:15:40,870 - INFO - Starting: Model Testing
+2025-10-06 01:16:58,611 - INFO - Completed: Model Testing
+2025-10-06 01:17:03,891 - INFO - Starting: Bias Metrics
+2025-10-06 01:17:04,585 - INFO - Completed: Bias Metrics
+2025-10-06 01:20:36,155 - INFO - Skipped: Model Validation
+2025-10-06 01:20:51,317 - INFO - Starting: Visualization
+2025-10-06 01:20:54,660 - INFO - Completed: Visualization
+2025-10-06 01:38:58,945 - INFO - Starting: Data Collection
+2025-10-06 16:12:13,782 - INFO - Starting: Data Collection
+2025-10-06 16:12:14,633 - ERROR - Data Collection failed: Command '['python', '/Users/rk/Desktop/BiasProject/collect_all.py']' returned non-zero exit status 1.
+2025-10-06 17:15:14,996 - INFO - Starting: Data Collection
+2025-10-06 20:58:14,574 - INFO - Completed: Data Collection
+2025-10-06 21:08:27,334 - INFO - Starting: Preprocessing
+2025-10-06 21:08:27,834 - ERROR - Preprocessing failed: Command '['python', '/Users/rk/Desktop/BiasProject/preprocessing.py']' returned non-zero exit status 1.
+2025-10-06 21:15:59,025 - INFO - Skipped: Data Collection
+2025-10-06 21:16:00,929 - INFO - Starting: Preprocessing
+2025-10-06 21:16:03,709 - INFO - Completed: Preprocessing
+2025-10-06 21:16:06,628 - INFO - Starting: Model Testing
+2025-10-06 21:21:05,615 - INFO - Completed: Model Testing
+2025-10-06 21:21:47,042 - INFO - Starting: Bias Metrics
+2025-10-06 21:21:48,012 - INFO - Completed: Bias Metrics
+2025-10-06 21:21:51,533 - INFO - Starting: Model Validation
+2025-10-06 21:21:56,010 - INFO - Completed: Model Validation
+2025-10-06 21:22:10,314 - INFO - Starting: Visualization
+2025-10-06 21:22:13,652 - INFO - Completed: Visualization

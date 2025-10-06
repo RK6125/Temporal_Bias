@@ -1,0 +1,5770 @@
+{
+  "summary": {
+    "total_samples": 2634,
+    "template_samples": 190,
+    "reddit_samples": 2444,
+    "models_tested": [
+      "bert",
+      "distilbert",
+      "vader_style",
+      "textblob"
+    ],
+    "periods_analyzed": [
+      "pre_metoo",
+      "post_metoo",
+      "covid_era",
+      "post_blm"
+    ]
+  },
+  "bias_metrics": {
+    "bert": {
+      "gender_profession": {
+        "man_doctor": {
+          "sample_size": 320,
+          "positive_ratio": 0.05625,
+          "negative_ratio": 0.55,
+          "neutral_ratio": 0.39375,
+          "avg_score": 0.6886530573479831,
+          "score_std": 0.13239438510290952,
+          "period_distribution": {
+            "pre_metoo": 34,
+            "post_metoo": 54,
+            "covid_era": 100,
+            "post_blm": 114,
+            "synthetic": 18
+          }
+        },
+        "man_engineer": {
+          "sample_size": 328,
+          "positive_ratio": 0.15853658536585366,
+          "negative_ratio": 0.3170731707317073,
+          "neutral_ratio": 0.524390243902439,
+          "avg_score": 0.6764052311276517,
+          "score_std": 0.1293956756069202,
+          "period_distribution": {
+            "pre_metoo": 53,
+            "post_metoo": 74,
+            "covid_era": 86,
+            "post_blm": 100,
+            "synthetic": 15
+          }
+        },
+        "woman_doctor": {
+          "sample_size": 200,
+          "positive_ratio": 0.06,
+          "negative_ratio": 0.555,
+          "neutral_ratio": 0.385,
+          "avg_score": 0.6914159509539605,
+          "score_std": 0.12970635661508628,
+          "period_distribution": {
+            "pre_metoo": 21,
+            "post_metoo": 38,
+            "covid_era": 64,
+            "post_blm": 72,
+            "synthetic": 5
+          }
+        },
+        "man_nurse": {
+          "sample_size": 252,
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.5873015873015873,
+          "neutral_ratio": 0.32936507936507936,
+          "avg_score": 0.6975696863872665,
+          "score_std": 0.13149018164796755,
+          "period_distribution": {
+            "pre_metoo": 26,
+            "post_metoo": 43,
+            "covid_era": 81,
+            "post_blm": 84,
+            "synthetic": 18
+          }
+        },
+        "woman_nurse": {
+          "sample_size": 124,
+          "positive_ratio": 0.06451612903225806,
+          "negative_ratio": 0.6209677419354839,
+          "neutral_ratio": 0.31451612903225806,
+          "avg_score": 0.7209932030208649,
+          "score_std": 0.13083066953788083,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 21,
+            "covid_era": 37,
+            "post_blm": 45,
+            "synthetic": 8
+          }
+        },
+        "man_teacher": {
+          "sample_size": 347,
+          "positive_ratio": 0.11239193083573487,
+          "negative_ratio": 0.5619596541786743,
+          "neutral_ratio": 0.3256484149855908,
+          "avg_score": 0.6942076807578634,
+          "score_std": 0.14363086815757203,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 52,
+            "covid_era": 110,
+            "post_blm": 148,
+            "synthetic": 18
+          }
+        },
+        "woman_teacher": {
+          "sample_size": 144,
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.6944444444444444,
+          "neutral_ratio": 0.2222222222222222,
+          "avg_score": 0.7180079323136144,
+          "score_std": 0.1410429902483342,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 23,
+            "covid_era": 44,
+            "post_blm": 65,
+            "synthetic": 5
+          }
+        },
+        "man_lawyer": {
+          "sample_size": 124,
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.4435483870967742,
+          "neutral_ratio": 0.47580645161290325,
+          "avg_score": 0.7044776262294862,
+          "score_std": 0.13302087213415092,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 24,
+            "covid_era": 44,
+            "post_blm": 35,
+            "synthetic": 13
+          }
+        },
+        "man_artist": {
+          "sample_size": 124,
+          "positive_ratio": 0.21774193548387097,
+          "negative_ratio": 0.3387096774193548,
+          "neutral_ratio": 0.4435483870967742,
+          "avg_score": 0.7067329246670969,
+          "score_std": 0.13527418689622528,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 30,
+            "covid_era": 27,
+            "post_blm": 37,
+            "synthetic": 17
+          }
+        },
+        "woman_artist": {
+          "sample_size": 79,
+          "positive_ratio": 0.25316455696202533,
+          "negative_ratio": 0.2911392405063291,
+          "neutral_ratio": 0.45569620253164556,
+          "avg_score": 0.7035440927064871,
+          "score_std": 0.14456073316067616,
+          "period_distribution": {
+            "pre_metoo": 11,
+            "post_metoo": 20,
+            "covid_era": 17,
+            "post_blm": 21,
+            "synthetic": 10
+          }
+        },
+        "woman_engineer": {
+          "sample_size": 107,
+          "positive_ratio": 0.16822429906542055,
+          "negative_ratio": 0.3644859813084112,
+          "neutral_ratio": 0.4672897196261682,
+          "avg_score": 0.6817065574855448,
+          "score_std": 0.13617569011166283,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 26,
+            "covid_era": 33,
+            "post_blm": 28,
+            "synthetic": 8
+          }
+        },
+        "woman_lawyer": {
+          "sample_size": 62,
+          "positive_ratio": 0.03225806451612903,
+          "negative_ratio": 0.532258064516129,
+          "neutral_ratio": 0.43548387096774194,
+          "avg_score": 0.6891247769517284,
+          "score_std": 0.12328549651105437,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 14,
+            "covid_era": 23,
+            "post_blm": 18,
+            "synthetic": 4
+          }
+        }
+      },
+      "race_authority": {
+        "african_manager": {
+          "sample_size": 33,
+          "positive_ratio": 0.18181818181818182,
+          "negative_ratio": 0.09090909090909091,
+          "neutral_ratio": 0.7272727272727273,
+          "avg_score": 0.7726285927223436,
+          "score_std": 0.12106864278726245,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 5,
+            "covid_era": 5,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "american_manager": {
+          "sample_size": 122,
+          "positive_ratio": 0.10655737704918032,
+          "negative_ratio": 0.23770491803278687,
+          "neutral_ratio": 0.6557377049180327,
+          "avg_score": 0.7107010850163756,
+          "score_std": 0.1308915710199501,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 28,
+            "covid_era": 30,
+            "post_blm": 43,
+            "synthetic": 2
+          }
+        },
+        "black_judge": {
+          "sample_size": 107,
+          "positive_ratio": 0.028037383177570093,
+          "negative_ratio": 0.5607476635514018,
+          "neutral_ratio": 0.411214953271028,
+          "avg_score": 0.6935918333931504,
+          "score_std": 0.12893301974612315,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 20,
+            "covid_era": 39,
+            "post_blm": 35,
+            "synthetic": 1
+          }
+        },
+        "white_judge": {
+          "sample_size": 98,
+          "positive_ratio": 0.02040816326530612,
+          "negative_ratio": 0.47959183673469385,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6569178037497462,
+          "score_std": 0.11581850713988831,
+          "period_distribution": {
+            "pre_metoo": 18,
+            "post_metoo": 20,
+            "covid_era": 22,
+            "post_blm": 37,
+            "synthetic": 1
+          }
+        },
+        "american_judge": {
+          "sample_size": 84,
+          "positive_ratio": 0.05952380952380952,
+          "negative_ratio": 0.30952380952380953,
+          "neutral_ratio": 0.6309523809523809,
+          "avg_score": 0.7241734106625829,
+          "score_std": 0.13650857693991236,
+          "period_distribution": {
+            "pre_metoo": 15,
+            "post_metoo": 29,
+            "covid_era": 17,
+            "post_blm": 23
+          }
+        },
+        "black_ceo": {
+          "sample_size": 37,
+          "positive_ratio": 0.1891891891891892,
+          "negative_ratio": 0.35135135135135137,
+          "neutral_ratio": 0.4594594594594595,
+          "avg_score": 0.7302879417264784,
+          "score_std": 0.13993439865255608,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 15,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "black_principal": {
+          "sample_size": 54,
+          "positive_ratio": 0.037037037037037035,
+          "negative_ratio": 0.7407407407407407,
+          "neutral_ratio": 0.2222222222222222,
+          "avg_score": 0.6528348492251502,
+          "score_std": 0.12715878261168564,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 8,
+            "covid_era": 16,
+            "post_blm": 24
+          }
+        },
+        "mexican_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.2857142857142857,
+          "neutral_ratio": 0.5714285714285714,
+          "avg_score": 0.67640534894807,
+          "score_std": 0.146309402665124,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 1
+          }
+        },
+        "white_principal": {
+          "sample_size": 52,
+          "positive_ratio": 0.019230769230769232,
+          "negative_ratio": 0.6346153846153846,
+          "neutral_ratio": 0.34615384615384615,
+          "avg_score": 0.6579434138077956,
+          "score_std": 0.1113230652555356,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 15,
+            "covid_era": 16,
+            "post_blm": 17,
+            "synthetic": 2
+          }
+        },
+        "black_manager": {
+          "sample_size": 147,
+          "positive_ratio": 0.06802721088435375,
+          "negative_ratio": 0.4489795918367347,
+          "neutral_ratio": 0.48299319727891155,
+          "avg_score": 0.7040915762891575,
+          "score_std": 0.11997369093075574,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 30,
+            "covid_era": 47,
+            "post_blm": 51,
+            "synthetic": 3
+          }
+        },
+        "white_manager": {
+          "sample_size": 173,
+          "positive_ratio": 0.046242774566473986,
+          "negative_ratio": 0.5144508670520231,
+          "neutral_ratio": 0.4393063583815029,
+          "avg_score": 0.6727360045978789,
+          "score_std": 0.11273461622719719,
+          "period_distribution": {
+            "pre_metoo": 24,
+            "post_metoo": 32,
+            "covid_era": 55,
+            "post_blm": 59,
+            "synthetic": 3
+          }
+        },
+        "black_director": {
+          "sample_size": 109,
+          "positive_ratio": 0.1834862385321101,
+          "negative_ratio": 0.28440366972477066,
+          "neutral_ratio": 0.5321100917431193,
+          "avg_score": 0.6888865984361107,
+          "score_std": 0.14807503330696256,
+          "period_distribution": {
+            "pre_metoo": 23,
+            "post_metoo": 21,
+            "covid_era": 27,
+            "post_blm": 36,
+            "synthetic": 2
+          }
+        },
+        "white_director": {
+          "sample_size": 93,
+          "positive_ratio": 0.13978494623655913,
+          "negative_ratio": 0.3010752688172043,
+          "neutral_ratio": 0.5591397849462365,
+          "avg_score": 0.7164884754406509,
+          "score_std": 0.13822591820880922,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 19,
+            "covid_era": 33,
+            "post_blm": 21,
+            "synthetic": 1
+          }
+        },
+        "mixed race_director": {
+          "sample_size": 6,
+          "positive_ratio": 0.6666666666666666,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.8877910176912943,
+          "score_std": 0.058591739865527306,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "african_director": {
+          "sample_size": 21,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.19047619047619047,
+          "neutral_ratio": 0.5238095238095238,
+          "avg_score": 0.6630849157060895,
+          "score_std": 0.14260183953166133,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 7,
+            "covid_era": 8,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_director": {
+          "sample_size": 103,
+          "positive_ratio": 0.1553398058252427,
+          "negative_ratio": 0.0970873786407767,
+          "neutral_ratio": 0.7475728155339806,
+          "avg_score": 0.729629149136034,
+          "score_std": 0.13672233617506016,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 25,
+            "covid_era": 39,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "asian_director": {
+          "sample_size": 98,
+          "positive_ratio": 0.11224489795918367,
+          "negative_ratio": 0.2755102040816326,
+          "neutral_ratio": 0.6122448979591837,
+          "avg_score": 0.740938738900788,
+          "score_std": 0.12551355362732403,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 25,
+            "covid_era": 36,
+            "post_blm": 29,
+            "synthetic": 1
+          }
+        },
+        "korean_director": {
+          "sample_size": 24,
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.875,
+          "avg_score": 0.8033158133427302,
+          "score_std": 0.09630898846442454,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 12,
+            "covid_era": 4,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "asian_judge": {
+          "sample_size": 62,
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.41935483870967744,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.7074290749526793,
+          "score_std": 0.1332394417667908,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 15,
+            "covid_era": 24,
+            "post_blm": 14,
+            "synthetic": 1
+          }
+        },
+        "chinese_judge": {
+          "sample_size": 17,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.058823529411764705,
+          "neutral_ratio": 0.9411764705882353,
+          "avg_score": 0.6728411071440753,
+          "score_std": 0.08728333580149457,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 6,
+            "covid_era": 1,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "white_ceo": {
+          "sample_size": 44,
+          "positive_ratio": 0.045454545454545456,
+          "negative_ratio": 0.3181818181818182,
+          "neutral_ratio": 0.6363636363636364,
+          "avg_score": 0.7078562419522892,
+          "score_std": 0.10808551277994326,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 17,
+            "covid_era": 15,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "arab_ceo": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.6991748511791229,
+          "score_std": 0.046223729848861694,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "covid_era": 2
+          }
+        },
+        "mexican_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.45,
+          "neutral_ratio": 0.55,
+          "avg_score": 0.6858380258083343,
+          "score_std": 0.10673894168715482,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 9
+          }
+        },
+        "asian_manager": {
+          "sample_size": 86,
+          "positive_ratio": 0.18604651162790697,
+          "negative_ratio": 0.3372093023255814,
+          "neutral_ratio": 0.47674418604651164,
+          "avg_score": 0.7068327838598296,
+          "score_std": 0.13668419820228853,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 17,
+            "covid_era": 24,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "brown_manager": {
+          "sample_size": 28,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6428571428571429,
+          "neutral_ratio": 0.35714285714285715,
+          "avg_score": 0.6979201627629144,
+          "score_std": 0.10352934477119424,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 7,
+            "post_blm": 5
+          }
+        },
+        "indian_director": {
+          "sample_size": 14,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.35714285714285715,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.7317686634404319,
+          "score_std": 0.10823054330091511,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "asian_ceo": {
+          "sample_size": 29,
+          "positive_ratio": 0.2413793103448276,
+          "negative_ratio": 0.20689655172413793,
+          "neutral_ratio": 0.5517241379310345,
+          "avg_score": 0.7218418943470922,
+          "score_std": 0.13133796372858214,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 4,
+            "covid_era": 8,
+            "post_blm": 5,
+            "synthetic": 3
+          }
+        },
+        "african_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8441081494092941,
+          "score_std": 0.1421920916202436,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "covid_era": 4
+          }
+        },
+        "american_ceo": {
+          "sample_size": 64,
+          "positive_ratio": 0.171875,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.578125,
+          "avg_score": 0.6871978789567947,
+          "score_std": 0.13327144575256136,
+          "period_distribution": {
+            "pre_metoo": 17,
+            "post_metoo": 8,
+            "covid_era": 20,
+            "post_blm": 19
+          }
+        },
+        "indian_ceo": {
+          "sample_size": 26,
+          "positive_ratio": 0.07692307692307693,
+          "negative_ratio": 0.15384615384615385,
+          "neutral_ratio": 0.7692307692307693,
+          "avg_score": 0.6317629470274999,
+          "score_std": 0.08907843314431177,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 1,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "japanese_manager": {
+          "sample_size": 26,
+          "positive_ratio": 0.19230769230769232,
+          "negative_ratio": 0.2692307692307692,
+          "neutral_ratio": 0.5384615384615384,
+          "avg_score": 0.784583731339528,
+          "score_std": 0.12342508789630367,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 3,
+            "covid_era": 3,
+            "post_blm": 13,
+            "synthetic": 1
+          }
+        },
+        "latino_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5454545454545454,
+          "neutral_ratio": 0.45454545454545453,
+          "avg_score": 0.7526817267591303,
+          "score_std": 0.08130648671366264,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 1,
+            "post_blm": 8
+          }
+        },
+        "latino_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.854289636015892,
+          "score_std": 0.06283257289576075,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "synthetic": 3
+          }
+        },
+        "hispanic_principal": {
+          "sample_size": 16,
+          "positive_ratio": 0.0625,
+          "negative_ratio": 0.75,
+          "neutral_ratio": 0.1875,
+          "avg_score": 0.5786898285150528,
+          "score_std": 0.14486306277329844,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 2,
+            "covid_era": 3,
+            "post_blm": 10
+          }
+        },
+        "indian_judge": {
+          "sample_size": 21,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5714285714285714,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.6629167724223364,
+          "score_std": 0.10608575281682375,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 5,
+            "covid_era": 2,
+            "post_blm": 10,
+            "synthetic": 1
+          }
+        },
+        "indian_manager": {
+          "sample_size": 48,
+          "positive_ratio": 0.10416666666666667,
+          "negative_ratio": 0.4791666666666667,
+          "neutral_ratio": 0.4166666666666667,
+          "avg_score": 0.6617704294621944,
+          "score_std": 0.11115709922266963,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 14,
+            "post_blm": 20,
+            "synthetic": 1
+          }
+        },
+        "arab_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.09090909090909091,
+          "negative_ratio": 0.18181818181818182,
+          "neutral_ratio": 0.7272727272727273,
+          "avg_score": 0.686582624912262,
+          "score_std": 0.1343064182628126,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 4,
+            "synthetic": 2
+          }
+        },
+        "european_manager": {
+          "sample_size": 52,
+          "positive_ratio": 0.057692307692307696,
+          "negative_ratio": 0.11538461538461539,
+          "neutral_ratio": 0.8269230769230769,
+          "avg_score": 0.7154811529012827,
+          "score_std": 0.12009607451416068,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 8,
+            "covid_era": 12,
+            "post_blm": 23,
+            "synthetic": 2
+          }
+        },
+        "european_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5833333333333334,
+          "neutral_ratio": 0.4166666666666667,
+          "avg_score": 0.6726362208525339,
+          "score_std": 0.09288041407368358,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 2,
+            "covid_era": 2,
+            "post_blm": 6
+          }
+        },
+        "european_director": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.14285714285714285,
+          "neutral_ratio": 0.7142857142857143,
+          "avg_score": 0.7233993411064148,
+          "score_std": 0.10840285292404242,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 3,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_principal": {
+          "sample_size": 40,
+          "positive_ratio": 0.05,
+          "negative_ratio": 0.45,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6404836818575859,
+          "score_std": 0.11029988095444383,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 11,
+            "covid_era": 15,
+            "post_blm": 12,
+            "synthetic": 1
+          }
+        },
+        "korean_manager": {
+          "sample_size": 23,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.13043478260869565,
+          "neutral_ratio": 0.8695652173913043,
+          "avg_score": 0.6945766003235526,
+          "score_std": 0.1352148592007881,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 5,
+            "covid_era": 7,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "korean_judge": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.75,
+          "avg_score": 0.6664378792047501,
+          "score_std": 0.12156513930769895,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "synthetic": 1
+          }
+        },
+        "chinese_manager": {
+          "sample_size": 42,
+          "positive_ratio": 0.023809523809523808,
+          "negative_ratio": 0.38095238095238093,
+          "neutral_ratio": 0.5952380952380952,
+          "avg_score": 0.6684487383990061,
+          "score_std": 0.121707904316668,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 11,
+            "covid_era": 14,
+            "post_blm": 10
+          }
+        },
+        "chinese_director": {
+          "sample_size": 27,
+          "positive_ratio": 0.1111111111111111,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.7777777777777778,
+          "avg_score": 0.7603298800962942,
+          "score_std": 0.12681326986777539,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 9,
+            "covid_era": 7,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "japanese_director": {
+          "sample_size": 9,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.5555555555555556,
+          "avg_score": 0.6682551635636224,
+          "score_std": 0.07978085691679966,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "mexican_judge": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.42857142857142855,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.5935172779219491,
+          "score_std": 0.06570828471687809,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "brown_judge": {
+          "sample_size": 22,
+          "positive_ratio": 0.045454545454545456,
+          "negative_ratio": 0.4090909090909091,
+          "neutral_ratio": 0.5454545454545454,
+          "avg_score": 0.6741809005087073,
+          "score_std": 0.07420791759454268,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 1,
+            "covid_era": 7,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "brown_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.7976077530119154,
+          "score_std": 0.0694165312384495,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 4,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "brown_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.14285714285714285,
+          "neutral_ratio": 0.5714285714285714,
+          "avg_score": 0.7748394012451172,
+          "score_std": 0.1274907205176089,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 2
+          }
+        },
+        "brown_director": {
+          "sample_size": 12,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6960157006978989,
+          "score_std": 0.1657041474439115,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 5,
+            "post_blm": 2
+          }
+        },
+        "hispanic_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.4,
+          "neutral_ratio": 0.6,
+          "avg_score": 0.6449481189250946,
+          "score_std": 0.11060445991920663,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 15
+          }
+        },
+        "african_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6860270996888479,
+          "score_std": 0.1352661190537617,
+          "period_distribution": {
+            "post_metoo": 4,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "latino_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.8888888888888888,
+          "avg_score": 0.7126689917511411,
+          "score_std": 0.09835616637690343,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 3
+          }
+        },
+        "hispanic_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.125,
+          "neutral_ratio": 0.875,
+          "avg_score": 0.7335453853011131,
+          "score_std": 0.054853723216062564,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 2
+          }
+        },
+        "chinese_ceo": {
+          "sample_size": 17,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.4117647058823529,
+          "neutral_ratio": 0.5882352941176471,
+          "avg_score": 0.6729632195304421,
+          "score_std": 0.09850906872027491,
+          "period_distribution": {
+            "post_metoo": 6,
+            "covid_era": 5,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "african_principal": {
+          "sample_size": 21,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5714285714285714,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.6538853957539513,
+          "score_std": 0.10146599018846308,
+          "period_distribution": {
+            "post_metoo": 7,
+            "covid_era": 10,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "hispanic_director": {
+          "sample_size": 15,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.4666666666666667,
+          "neutral_ratio": 0.5333333333333333,
+          "avg_score": 0.656183139483134,
+          "score_std": 0.1487145130830691,
+          "period_distribution": {
+            "post_metoo": 6,
+            "post_blm": 7,
+            "synthetic": 2
+          }
+        },
+        "hispanic_judge": {
+          "sample_size": 10,
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.4,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.7416771411895752,
+          "score_std": 0.11883801158910834,
+          "period_distribution": {
+            "post_metoo": 2,
+            "covid_era": 1,
+            "post_blm": 7
+          }
+        },
+        "asian_principal": {
+          "sample_size": 20,
+          "positive_ratio": 0.05,
+          "negative_ratio": 0.8,
+          "neutral_ratio": 0.15,
+          "avg_score": 0.6071113556623459,
+          "score_std": 0.12395535874152397,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 13,
+            "post_blm": 4
+          }
+        },
+        "latino_principal": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6363636363636364,
+          "neutral_ratio": 0.36363636363636365,
+          "avg_score": 0.7051538499918851,
+          "score_std": 0.12003380809631511,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "indian_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.8,
+          "neutral_ratio": 0.2,
+          "avg_score": 0.7205406427383423,
+          "score_std": 0.08571908974352418,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 4
+          }
+        },
+        "arab_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.744807834426562,
+          "score_std": 0.14288198883483003,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 2,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "arab_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.7780054211616516,
+          "score_std": 0.09051364746962699,
+          "period_distribution": {
+            "post_metoo": 1,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "chinese_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.2857142857142857,
+          "neutral_ratio": 0.5714285714285714,
+          "avg_score": 0.7538745871612004,
+          "score_std": 0.16511830493513294,
+          "period_distribution": {
+            "post_metoo": 4,
+            "covid_era": 1,
+            "post_blm": 1,
+            "synthetic": 1
+          }
+        },
+        "japanese_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.5187025189399719,
+          "score_std": 0.03306541690948712,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 3,
+            "synthetic": 1
+          }
+        },
+        "mixed race_manager": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.6906537413597107,
+          "score_std": 0.09677263448431551,
+          "period_distribution": {
+            "post_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "mixed race_judge": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.6698031425476074,
+          "score_std": 0.0,
+          "period_distribution": {
+            "post_metoo": 5
+          }
+        },
+        "japanese_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.5804818967978159,
+          "score_std": 0.09637906055587896,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "european_ceo": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.42857142857142855,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.7279636008398873,
+          "score_std": 0.0953128333605671,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "korean_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.495147705078125,
+          "score_std": 0.0,
+          "period_distribution": {
+            "covid_era": 3
+          }
+        },
+        "european_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.5536488691965739,
+          "score_std": 0.027343705106626155,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "mexican_ceo": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.5680073499679565,
+          "score_std": 0.04721509133802606,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        }
+      },
+      "temporal_changes": {
+        "pre_metoo": {
+          "sample_size": 325,
+          "positive_ratio": 0.11384615384615385,
+          "negative_ratio": 0.31076923076923074,
+          "neutral_ratio": 0.5753846153846154,
+          "avg_score": 0.6913867889917814,
+          "score_std": 0.13063201179033787
+        },
+        "post_metoo": {
+          "sample_size": 526,
+          "positive_ratio": 0.11216730038022814,
+          "negative_ratio": 0.3593155893536122,
+          "neutral_ratio": 0.5285171102661597,
+          "avg_score": 0.6967254462917495,
+          "score_std": 0.13291404592789996
+        },
+        "covid_era": {
+          "sample_size": 736,
+          "positive_ratio": 0.10326086956521739,
+          "negative_ratio": 0.45516304347826086,
+          "neutral_ratio": 0.44157608695652173,
+          "avg_score": 0.6947407571031995,
+          "score_std": 0.13359653981030004
+        },
+        "post_blm": {
+          "sample_size": 857,
+          "positive_ratio": 0.1073512252042007,
+          "negative_ratio": 0.46674445740956827,
+          "neutral_ratio": 0.425904317386231,
+          "avg_score": 0.687508727316261,
+          "score_std": 0.1301738419315661
+        }
+      },
+      "temporal_by_community": {},
+      "amplification": {
+        "man_doctor": {
+          "amplification_score": -0.9249999999999999,
+          "model_bias": 0.05625,
+          "baseline_bias": 0.75,
+          "sample_size": 320
+        },
+        "man_engineer": {
+          "amplification_score": -0.7735191637630662,
+          "model_bias": 0.15853658536585366,
+          "baseline_bias": 0.7,
+          "sample_size": 328
+        },
+        "woman_doctor": {
+          "amplification_score": -0.9076923076923078,
+          "model_bias": 0.06,
+          "baseline_bias": 0.65,
+          "sample_size": 200
+        },
+        "man_nurse": {
+          "amplification_score": -0.8148148148148149,
+          "model_bias": 0.08333333333333333,
+          "baseline_bias": 0.45,
+          "sample_size": 252
+        },
+        "woman_nurse": {
+          "amplification_score": -0.9193548387096775,
+          "model_bias": 0.06451612903225806,
+          "baseline_bias": 0.8,
+          "sample_size": 124
+        },
+        "man_teacher": {
+          "amplification_score": -0.8126801152737753,
+          "model_bias": 0.11239193083573487,
+          "baseline_bias": 0.6,
+          "sample_size": 347
+        },
+        "woman_teacher": {
+          "amplification_score": -0.8888888888888888,
+          "model_bias": 0.08333333333333333,
+          "baseline_bias": 0.75,
+          "sample_size": 144
+        },
+        "man_lawyer": {
+          "amplification_score": -0.8759305210918114,
+          "model_bias": 0.08064516129032258,
+          "baseline_bias": 0.65,
+          "sample_size": 124
+        },
+        "woman_engineer": {
+          "amplification_score": -0.5794392523364487,
+          "model_bias": 0.16822429906542055,
+          "baseline_bias": 0.4,
+          "sample_size": 107
+        },
+        "woman_lawyer": {
+          "amplification_score": -0.9413489736070382,
+          "model_bias": 0.03225806451612903,
+          "baseline_bias": 0.55,
+          "sample_size": 62
+        }
+      },
+      "consistency": {},
+      "effect_sizes": {}
+    },
+    "distilbert": {
+      "gender_profession": {
+        "man_doctor": {
+          "sample_size": 320,
+          "positive_ratio": 0.165625,
+          "negative_ratio": 0.834375,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9689354097470642,
+          "score_std": 0.0763109511338865,
+          "period_distribution": {
+            "pre_metoo": 34,
+            "post_metoo": 54,
+            "covid_era": 100,
+            "post_blm": 114,
+            "synthetic": 18
+          }
+        },
+        "man_engineer": {
+          "sample_size": 328,
+          "positive_ratio": 0.2530487804878049,
+          "negative_ratio": 0.7439024390243902,
+          "neutral_ratio": 0.003048780487804878,
+          "avg_score": 0.9536964695264654,
+          "score_std": 0.1011224565052741,
+          "period_distribution": {
+            "pre_metoo": 53,
+            "post_metoo": 74,
+            "covid_era": 86,
+            "post_blm": 100,
+            "synthetic": 15
+          }
+        },
+        "woman_doctor": {
+          "sample_size": 200,
+          "positive_ratio": 0.155,
+          "negative_ratio": 0.845,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9712911534309387,
+          "score_std": 0.0701063034489185,
+          "period_distribution": {
+            "pre_metoo": 21,
+            "post_metoo": 38,
+            "covid_era": 64,
+            "post_blm": 72,
+            "synthetic": 5
+          }
+        },
+        "man_nurse": {
+          "sample_size": 252,
+          "positive_ratio": 0.1626984126984127,
+          "negative_ratio": 0.8373015873015873,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9722574426541253,
+          "score_std": 0.07322437737099818,
+          "period_distribution": {
+            "pre_metoo": 26,
+            "post_metoo": 43,
+            "covid_era": 81,
+            "post_blm": 84,
+            "synthetic": 18
+          }
+        },
+        "woman_nurse": {
+          "sample_size": 124,
+          "positive_ratio": 0.16129032258064516,
+          "negative_ratio": 0.8387096774193549,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9722498914887828,
+          "score_std": 0.0726533400844743,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 21,
+            "covid_era": 37,
+            "post_blm": 45,
+            "synthetic": 8
+          }
+        },
+        "man_teacher": {
+          "sample_size": 347,
+          "positive_ratio": 0.21613832853025935,
+          "negative_ratio": 0.7838616714697406,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9551460772151562,
+          "score_std": 0.10063102525663171,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 52,
+            "covid_era": 110,
+            "post_blm": 148,
+            "synthetic": 18
+          }
+        },
+        "woman_teacher": {
+          "sample_size": 144,
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.7777777777777778,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9557522982358932,
+          "score_std": 0.10140529903926246,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 23,
+            "covid_era": 44,
+            "post_blm": 65,
+            "synthetic": 5
+          }
+        },
+        "man_lawyer": {
+          "sample_size": 124,
+          "positive_ratio": 0.23387096774193547,
+          "negative_ratio": 0.7661290322580645,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9605643854987237,
+          "score_std": 0.08612113668325108,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 24,
+            "covid_era": 44,
+            "post_blm": 35,
+            "synthetic": 13
+          }
+        },
+        "man_artist": {
+          "sample_size": 124,
+          "positive_ratio": 0.3548387096774194,
+          "negative_ratio": 0.6451612903225806,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9597656491302675,
+          "score_std": 0.08182228069872736,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 30,
+            "covid_era": 27,
+            "post_blm": 37,
+            "synthetic": 17
+          }
+        },
+        "woman_artist": {
+          "sample_size": 79,
+          "positive_ratio": 0.4430379746835443,
+          "negative_ratio": 0.5569620253164557,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9535007371178156,
+          "score_std": 0.08617270991576727,
+          "period_distribution": {
+            "pre_metoo": 11,
+            "post_metoo": 20,
+            "covid_era": 17,
+            "post_blm": 21,
+            "synthetic": 10
+          }
+        },
+        "woman_engineer": {
+          "sample_size": 107,
+          "positive_ratio": 0.34579439252336447,
+          "negative_ratio": 0.6542056074766355,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9384088521805879,
+          "score_std": 0.11156293104311227,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 26,
+            "covid_era": 33,
+            "post_blm": 28,
+            "synthetic": 8
+          }
+        },
+        "woman_lawyer": {
+          "sample_size": 62,
+          "positive_ratio": 0.16129032258064516,
+          "negative_ratio": 0.8387096774193549,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9748911569195409,
+          "score_std": 0.06001613785110426,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 14,
+            "covid_era": 23,
+            "post_blm": 18,
+            "synthetic": 4
+          }
+        }
+      },
+      "race_authority": {
+        "african_manager": {
+          "sample_size": 33,
+          "positive_ratio": 0.42424242424242425,
+          "negative_ratio": 0.5757575757575758,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9143888480735548,
+          "score_std": 0.14640139112455725,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 5,
+            "covid_era": 5,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "american_manager": {
+          "sample_size": 122,
+          "positive_ratio": 0.28688524590163933,
+          "negative_ratio": 0.7049180327868853,
+          "neutral_ratio": 0.00819672131147541,
+          "avg_score": 0.9581727512547227,
+          "score_std": 0.10633519750178194,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 28,
+            "covid_era": 30,
+            "post_blm": 43,
+            "synthetic": 2
+          }
+        },
+        "black_judge": {
+          "sample_size": 107,
+          "positive_ratio": 0.205607476635514,
+          "negative_ratio": 0.794392523364486,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9569657963012981,
+          "score_std": 0.08485933677726189,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 20,
+            "covid_era": 39,
+            "post_blm": 35,
+            "synthetic": 1
+          }
+        },
+        "white_judge": {
+          "sample_size": 98,
+          "positive_ratio": 0.1836734693877551,
+          "negative_ratio": 0.8163265306122449,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.976064925899311,
+          "score_std": 0.04767318707060182,
+          "period_distribution": {
+            "pre_metoo": 18,
+            "post_metoo": 20,
+            "covid_era": 22,
+            "post_blm": 37,
+            "synthetic": 1
+          }
+        },
+        "american_judge": {
+          "sample_size": 84,
+          "positive_ratio": 0.32142857142857145,
+          "negative_ratio": 0.6785714285714286,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9537465948434103,
+          "score_std": 0.09415414072099221,
+          "period_distribution": {
+            "pre_metoo": 15,
+            "post_metoo": 29,
+            "covid_era": 17,
+            "post_blm": 23
+          }
+        },
+        "black_ceo": {
+          "sample_size": 37,
+          "positive_ratio": 0.21621621621621623,
+          "negative_ratio": 0.7837837837837838,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9810913285693607,
+          "score_std": 0.0440891699238742,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 15,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "black_principal": {
+          "sample_size": 54,
+          "positive_ratio": 0.2777777777777778,
+          "negative_ratio": 0.7222222222222222,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8853990899191962,
+          "score_std": 0.15331936876357838,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 8,
+            "covid_era": 16,
+            "post_blm": 24
+          }
+        },
+        "mexican_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.5714285714285714,
+          "negative_ratio": 0.42857142857142855,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8847572122301374,
+          "score_std": 0.14886199836111963,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 1
+          }
+        },
+        "white_principal": {
+          "sample_size": 52,
+          "positive_ratio": 0.21153846153846154,
+          "negative_ratio": 0.7884615384615384,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9185332117172388,
+          "score_std": 0.11618138170002404,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 15,
+            "covid_era": 16,
+            "post_blm": 17,
+            "synthetic": 2
+          }
+        },
+        "black_manager": {
+          "sample_size": 147,
+          "positive_ratio": 0.07482993197278912,
+          "negative_ratio": 0.9251700680272109,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9817159974656138,
+          "score_std": 0.05565481175285255,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 30,
+            "covid_era": 47,
+            "post_blm": 51,
+            "synthetic": 3
+          }
+        },
+        "white_manager": {
+          "sample_size": 173,
+          "positive_ratio": 0.046242774566473986,
+          "negative_ratio": 0.953757225433526,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9787904410003927,
+          "score_std": 0.05562888137638864,
+          "period_distribution": {
+            "pre_metoo": 24,
+            "post_metoo": 32,
+            "covid_era": 55,
+            "post_blm": 59,
+            "synthetic": 3
+          }
+        },
+        "black_director": {
+          "sample_size": 109,
+          "positive_ratio": 0.30275229357798167,
+          "negative_ratio": 0.6972477064220184,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9405142506328198,
+          "score_std": 0.10964869216454423,
+          "period_distribution": {
+            "pre_metoo": 23,
+            "post_metoo": 21,
+            "covid_era": 27,
+            "post_blm": 36,
+            "synthetic": 2
+          }
+        },
+        "white_director": {
+          "sample_size": 93,
+          "positive_ratio": 0.22580645161290322,
+          "negative_ratio": 0.7741935483870968,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9421865536320594,
+          "score_std": 0.09611097642465574,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 19,
+            "covid_era": 33,
+            "post_blm": 21,
+            "synthetic": 1
+          }
+        },
+        "mixed race_director": {
+          "sample_size": 6,
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8338935474554697,
+          "score_std": 0.11703785897244648,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "african_director": {
+          "sample_size": 21,
+          "positive_ratio": 0.5238095238095238,
+          "negative_ratio": 0.47619047619047616,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.930684697060358,
+          "score_std": 0.07723649282733627,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 7,
+            "covid_era": 8,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_director": {
+          "sample_size": 103,
+          "positive_ratio": 0.5339805825242718,
+          "negative_ratio": 0.46601941747572817,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9680661136664234,
+          "score_std": 0.06067032087856059,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 25,
+            "covid_era": 39,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "asian_director": {
+          "sample_size": 98,
+          "positive_ratio": 0.4387755102040816,
+          "negative_ratio": 0.5612244897959183,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9748793359921903,
+          "score_std": 0.04628521304407986,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 25,
+            "covid_era": 36,
+            "post_blm": 29,
+            "synthetic": 1
+          }
+        },
+        "korean_director": {
+          "sample_size": 24,
+          "positive_ratio": 0.4166666666666667,
+          "negative_ratio": 0.5833333333333334,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9914577131470045,
+          "score_std": 0.015406557752048095,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 12,
+            "covid_era": 4,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "asian_judge": {
+          "sample_size": 62,
+          "positive_ratio": 0.3548387096774194,
+          "negative_ratio": 0.6451612903225806,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.964546509327427,
+          "score_std": 0.07335601465309648,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 15,
+            "covid_era": 24,
+            "post_blm": 14,
+            "synthetic": 1
+          }
+        },
+        "chinese_judge": {
+          "sample_size": 17,
+          "positive_ratio": 0.35294117647058826,
+          "negative_ratio": 0.6470588235294118,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9764231583651375,
+          "score_std": 0.06799949919196163,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 6,
+            "covid_era": 1,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "white_ceo": {
+          "sample_size": 44,
+          "positive_ratio": 0.06818181818181818,
+          "negative_ratio": 0.9318181818181818,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.982770251956853,
+          "score_std": 0.03331796963058709,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 17,
+            "covid_era": 15,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "arab_ceo": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9959874153137207,
+          "score_std": 0.0012331008911132812,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "covid_era": 2
+          }
+        },
+        "mexican_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.9,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9734593957662583,
+          "score_std": 0.06982957437487933,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 9
+          }
+        },
+        "asian_manager": {
+          "sample_size": 86,
+          "positive_ratio": 0.2558139534883721,
+          "negative_ratio": 0.7441860465116279,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9714814674022586,
+          "score_std": 0.0653001565147941,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 17,
+            "covid_era": 24,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "brown_manager": {
+          "sample_size": 28,
+          "positive_ratio": 0.10714285714285714,
+          "negative_ratio": 0.8928571428571429,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9803731931107385,
+          "score_std": 0.03423512367445056,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 7,
+            "post_blm": 5
+          }
+        },
+        "indian_director": {
+          "sample_size": 14,
+          "positive_ratio": 0.35714285714285715,
+          "negative_ratio": 0.6428571428571429,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9950358441897801,
+          "score_std": 0.003184888524034165,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "asian_ceo": {
+          "sample_size": 29,
+          "positive_ratio": 0.2413793103448276,
+          "negative_ratio": 0.7586206896551724,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.953492468801038,
+          "score_std": 0.06680081678014771,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 4,
+            "covid_era": 8,
+            "post_blm": 5,
+            "synthetic": 3
+          }
+        },
+        "african_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.375,
+          "negative_ratio": 0.625,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9855195432901382,
+          "score_std": 0.004491856255344122,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "covid_era": 4
+          }
+        },
+        "american_ceo": {
+          "sample_size": 64,
+          "positive_ratio": 0.21875,
+          "negative_ratio": 0.78125,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9810581365600228,
+          "score_std": 0.03231618236467756,
+          "period_distribution": {
+            "pre_metoo": 17,
+            "post_metoo": 8,
+            "covid_era": 20,
+            "post_blm": 19
+          }
+        },
+        "indian_ceo": {
+          "sample_size": 26,
+          "positive_ratio": 0.23076923076923078,
+          "negative_ratio": 0.7692307692307693,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9739585427137522,
+          "score_std": 0.047887239114797586,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 1,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "japanese_manager": {
+          "sample_size": 26,
+          "positive_ratio": 0.3076923076923077,
+          "negative_ratio": 0.6923076923076923,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9737432438593644,
+          "score_std": 0.03416723874786569,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 3,
+            "covid_era": 3,
+            "post_blm": 13,
+            "synthetic": 1
+          }
+        },
+        "latino_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.09090909090909091,
+          "negative_ratio": 0.9090909090909091,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9961093068122864,
+          "score_std": 0.003239260798880209,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 1,
+            "post_blm": 8
+          }
+        },
+        "latino_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.75,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8297290056943893,
+          "score_std": 0.10840682492938773,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "synthetic": 3
+          }
+        },
+        "hispanic_principal": {
+          "sample_size": 16,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9295312874019146,
+          "score_std": 0.08017600654112712,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 2,
+            "covid_era": 3,
+            "post_blm": 10
+          }
+        },
+        "indian_judge": {
+          "sample_size": 21,
+          "positive_ratio": 0.19047619047619047,
+          "negative_ratio": 0.8095238095238095,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9758012805666242,
+          "score_std": 0.052588568747367996,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 5,
+            "covid_era": 2,
+            "post_blm": 10,
+            "synthetic": 1
+          }
+        },
+        "indian_manager": {
+          "sample_size": 48,
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.875,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9833035406967005,
+          "score_std": 0.042551245694234095,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 14,
+            "post_blm": 20,
+            "synthetic": 1
+          }
+        },
+        "arab_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.09090909090909091,
+          "negative_ratio": 0.9090909090909091,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9435498010028492,
+          "score_std": 0.10848835805059244,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 4,
+            "synthetic": 2
+          }
+        },
+        "european_manager": {
+          "sample_size": 52,
+          "positive_ratio": 0.3076923076923077,
+          "negative_ratio": 0.6923076923076923,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.918999154980366,
+          "score_std": 0.12367210224822708,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 8,
+            "covid_era": 12,
+            "post_blm": 23,
+            "synthetic": 2
+          }
+        },
+        "european_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.9166666666666666,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9552363107601801,
+          "score_std": 0.10878749800775034,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 2,
+            "covid_era": 2,
+            "post_blm": 6
+          }
+        },
+        "european_director": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.8571428571428571,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9863482202802386,
+          "score_std": 0.010510565699212973,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 3,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_principal": {
+          "sample_size": 40,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.75,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9392022892832756,
+          "score_std": 0.11871889041953418,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 11,
+            "covid_era": 15,
+            "post_blm": 12,
+            "synthetic": 1
+          }
+        },
+        "korean_manager": {
+          "sample_size": 23,
+          "positive_ratio": 0.13043478260869565,
+          "negative_ratio": 0.8695652173913043,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9526440086572067,
+          "score_std": 0.09359881510808045,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 5,
+            "covid_era": 7,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "korean_judge": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9647856801748276,
+          "score_std": 0.05007206772933957,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "synthetic": 1
+          }
+        },
+        "chinese_manager": {
+          "sample_size": 42,
+          "positive_ratio": 0.11904761904761904,
+          "negative_ratio": 0.8809523809523809,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9695203446206593,
+          "score_std": 0.058377992835594784,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 11,
+            "covid_era": 14,
+            "post_blm": 10
+          }
+        },
+        "chinese_director": {
+          "sample_size": 27,
+          "positive_ratio": 0.4444444444444444,
+          "negative_ratio": 0.5555555555555556,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9661070704460144,
+          "score_std": 0.05783885372974872,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 9,
+            "covid_era": 7,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "japanese_director": {
+          "sample_size": 9,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9142067035039266,
+          "score_std": 0.07823618458451433,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "mexican_judge": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.8571428571428571,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.972987140927996,
+          "score_std": 0.03793986026155031,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "brown_judge": {
+          "sample_size": 22,
+          "positive_ratio": 0.3181818181818182,
+          "negative_ratio": 0.6818181818181818,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9659906652840701,
+          "score_std": 0.07896907188557394,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 1,
+            "covid_era": 7,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "brown_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9511706166797214,
+          "score_std": 0.06917715846343178,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 4,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "brown_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.987716521535601,
+          "score_std": 0.022582624883455648,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 2
+          }
+        },
+        "brown_director": {
+          "sample_size": 12,
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.9166666666666666,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9822807361682256,
+          "score_std": 0.025629913406103908,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 5,
+            "post_blm": 2
+          }
+        },
+        "hispanic_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.05,
+          "negative_ratio": 0.95,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9697166830301285,
+          "score_std": 0.09968336033706686,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 15
+          }
+        },
+        "african_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9322062383095423,
+          "score_std": 0.14851821976215973,
+          "period_distribution": {
+            "post_metoo": 4,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "latino_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.7777777777777778,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9530094994439019,
+          "score_std": 0.07319055143592242,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 3
+          }
+        },
+        "hispanic_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9153744801878929,
+          "score_std": 0.1549148063011297,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 2
+          }
+        },
+        "chinese_ceo": {
+          "sample_size": 17,
+          "positive_ratio": 0.058823529411764705,
+          "negative_ratio": 0.9411764705882353,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9641856691416573,
+          "score_std": 0.08371147084649223,
+          "period_distribution": {
+            "post_metoo": 6,
+            "covid_era": 5,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "african_principal": {
+          "sample_size": 21,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9344534590130761,
+          "score_std": 0.10564242156144264,
+          "period_distribution": {
+            "post_metoo": 7,
+            "covid_era": 10,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "hispanic_director": {
+          "sample_size": 15,
+          "positive_ratio": 0.13333333333333333,
+          "negative_ratio": 0.8666666666666667,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9084340532620748,
+          "score_std": 0.060466563448802774,
+          "period_distribution": {
+            "post_metoo": 6,
+            "post_blm": 7,
+            "synthetic": 2
+          }
+        },
+        "hispanic_judge": {
+          "sample_size": 10,
+          "positive_ratio": 0.7,
+          "negative_ratio": 0.3,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9033202350139617,
+          "score_std": 0.08939113600670098,
+          "period_distribution": {
+            "post_metoo": 2,
+            "covid_era": 1,
+            "post_blm": 7
+          }
+        },
+        "asian_principal": {
+          "sample_size": 20,
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.9,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9458642780780793,
+          "score_std": 0.07240777446689609,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 13,
+            "post_blm": 4
+          }
+        },
+        "latino_principal": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9510307745500044,
+          "score_std": 0.13658139265578284,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "indian_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9649439811706543,
+          "score_std": 0.06348583072823341,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 4
+          }
+        },
+        "arab_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.8333333333333334,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9083041250705719,
+          "score_std": 0.10253532400094396,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 2,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "arab_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.75,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9449948817491531,
+          "score_std": 0.039962728094772505,
+          "period_distribution": {
+            "post_metoo": 1,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "chinese_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9555951186588832,
+          "score_std": 0.04853595924967271,
+          "period_distribution": {
+            "post_metoo": 4,
+            "covid_era": 1,
+            "post_blm": 1,
+            "synthetic": 1
+          }
+        },
+        "japanese_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.8,
+          "negative_ratio": 0.2,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9576733708381653,
+          "score_std": 0.0417428932658224,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 3,
+            "synthetic": 1
+          }
+        },
+        "mixed race_manager": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9780246019363403,
+          "score_std": 0.032166476416667845,
+          "period_distribution": {
+            "post_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "mixed race_judge": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9968035221099854,
+          "score_std": 0.0,
+          "period_distribution": {
+            "post_metoo": 5
+          }
+        },
+        "japanese_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.8333333333333334,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8899571398893992,
+          "score_std": 0.14919087672010836,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "european_ceo": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.901645839214325,
+          "score_std": 0.11287969841867437,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "korean_principal": {
+          "sample_size": 3,
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9725192785263062,
+          "score_std": 0.0,
+          "period_distribution": {
+            "covid_era": 3
+          }
+        },
+        "european_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.6666666666666666,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9806809226671854,
+          "score_std": 0.015543032288940604,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "mexican_ceo": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9153023958206177,
+          "score_std": 0.11832255674730177,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        }
+      },
+      "temporal_changes": {
+        "pre_metoo": {
+          "sample_size": 325,
+          "positive_ratio": 0.19076923076923077,
+          "negative_ratio": 0.8061538461538461,
+          "neutral_ratio": 0.003076923076923077,
+          "avg_score": 0.9545822141720699,
+          "score_std": 0.09555979540068553
+        },
+        "post_metoo": {
+          "sample_size": 526,
+          "positive_ratio": 0.24334600760456274,
+          "negative_ratio": 0.7566539923954373,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9590861526505575,
+          "score_std": 0.08393900870975655
+        },
+        "covid_era": {
+          "sample_size": 736,
+          "positive_ratio": 0.19157608695652173,
+          "negative_ratio": 0.8084239130434783,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.971582210501251,
+          "score_std": 0.07251940578944988
+        },
+        "post_blm": {
+          "sample_size": 857,
+          "positive_ratio": 0.20653442240373396,
+          "negative_ratio": 0.793465577596266,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.9639421934424927,
+          "score_std": 0.08548981678784262
+        }
+      },
+      "temporal_by_community": {},
+      "amplification": {
+        "man_doctor": {
+          "amplification_score": -0.7791666666666667,
+          "model_bias": 0.165625,
+          "baseline_bias": 0.75,
+          "sample_size": 320
+        },
+        "man_engineer": {
+          "amplification_score": -0.6385017421602788,
+          "model_bias": 0.2530487804878049,
+          "baseline_bias": 0.7,
+          "sample_size": 328
+        },
+        "woman_doctor": {
+          "amplification_score": -0.7615384615384615,
+          "model_bias": 0.155,
+          "baseline_bias": 0.65,
+          "sample_size": 200
+        },
+        "man_nurse": {
+          "amplification_score": -0.6384479717813051,
+          "model_bias": 0.1626984126984127,
+          "baseline_bias": 0.45,
+          "sample_size": 252
+        },
+        "woman_nurse": {
+          "amplification_score": -0.7983870967741936,
+          "model_bias": 0.16129032258064516,
+          "baseline_bias": 0.8,
+          "sample_size": 124
+        },
+        "man_teacher": {
+          "amplification_score": -0.6397694524495677,
+          "model_bias": 0.21613832853025935,
+          "baseline_bias": 0.6,
+          "sample_size": 347
+        },
+        "woman_teacher": {
+          "amplification_score": -0.7037037037037037,
+          "model_bias": 0.2222222222222222,
+          "baseline_bias": 0.75,
+          "sample_size": 144
+        },
+        "man_lawyer": {
+          "amplification_score": -0.640198511166253,
+          "model_bias": 0.23387096774193547,
+          "baseline_bias": 0.65,
+          "sample_size": 124
+        },
+        "woman_engineer": {
+          "amplification_score": -0.13551401869158888,
+          "model_bias": 0.34579439252336447,
+          "baseline_bias": 0.4,
+          "sample_size": 107
+        },
+        "woman_lawyer": {
+          "amplification_score": -0.7067448680351907,
+          "model_bias": 0.16129032258064516,
+          "baseline_bias": 0.55,
+          "sample_size": 62
+        }
+      },
+      "consistency": {},
+      "effect_sizes": {}
+    },
+    "vader_style": {
+      "gender_profession": {
+        "man_doctor": {
+          "sample_size": 320,
+          "positive_ratio": 0.053125,
+          "negative_ratio": 0.715625,
+          "neutral_ratio": 0.23125,
+          "avg_score": 0.7091460776515305,
+          "score_std": 0.15971424166619466,
+          "period_distribution": {
+            "pre_metoo": 34,
+            "post_metoo": 54,
+            "covid_era": 100,
+            "post_blm": 114,
+            "synthetic": 18
+          }
+        },
+        "man_engineer": {
+          "sample_size": 328,
+          "positive_ratio": 0.16158536585365854,
+          "negative_ratio": 0.4329268292682927,
+          "neutral_ratio": 0.4054878048780488,
+          "avg_score": 0.6334294831243957,
+          "score_std": 0.15759776627499436,
+          "period_distribution": {
+            "pre_metoo": 53,
+            "post_metoo": 74,
+            "covid_era": 86,
+            "post_blm": 100,
+            "synthetic": 15
+          }
+        },
+        "woman_doctor": {
+          "sample_size": 200,
+          "positive_ratio": 0.04,
+          "negative_ratio": 0.715,
+          "neutral_ratio": 0.245,
+          "avg_score": 0.7032799044251442,
+          "score_std": 0.1609059865590046,
+          "period_distribution": {
+            "pre_metoo": 21,
+            "post_metoo": 38,
+            "covid_era": 64,
+            "post_blm": 72,
+            "synthetic": 5
+          }
+        },
+        "man_nurse": {
+          "sample_size": 252,
+          "positive_ratio": 0.10714285714285714,
+          "negative_ratio": 0.7023809523809523,
+          "neutral_ratio": 0.19047619047619047,
+          "avg_score": 0.7254317230175412,
+          "score_std": 0.15120174333304656,
+          "period_distribution": {
+            "pre_metoo": 26,
+            "post_metoo": 43,
+            "covid_era": 81,
+            "post_blm": 84,
+            "synthetic": 18
+          }
+        },
+        "woman_nurse": {
+          "sample_size": 124,
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.717741935483871,
+          "neutral_ratio": 0.20161290322580644,
+          "avg_score": 0.7389658744777402,
+          "score_std": 0.14549093984529726,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 21,
+            "covid_era": 37,
+            "post_blm": 45,
+            "synthetic": 8
+          }
+        },
+        "man_teacher": {
+          "sample_size": 347,
+          "positive_ratio": 0.17579250720461095,
+          "negative_ratio": 0.6167146974063401,
+          "neutral_ratio": 0.207492795389049,
+          "avg_score": 0.6805965176405069,
+          "score_std": 0.1718697665596723,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 52,
+            "covid_era": 110,
+            "post_blm": 148,
+            "synthetic": 18
+          }
+        },
+        "woman_teacher": {
+          "sample_size": 144,
+          "positive_ratio": 0.13194444444444445,
+          "negative_ratio": 0.7361111111111112,
+          "neutral_ratio": 0.13194444444444445,
+          "avg_score": 0.7309960008909305,
+          "score_std": 0.16285432197479774,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 23,
+            "covid_era": 44,
+            "post_blm": 65,
+            "synthetic": 5
+          }
+        },
+        "man_lawyer": {
+          "sample_size": 124,
+          "positive_ratio": 0.12096774193548387,
+          "negative_ratio": 0.6451612903225806,
+          "neutral_ratio": 0.23387096774193547,
+          "avg_score": 0.6823961857345796,
+          "score_std": 0.16485408144630048,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 24,
+            "covid_era": 44,
+            "post_blm": 35,
+            "synthetic": 13
+          }
+        },
+        "man_artist": {
+          "sample_size": 124,
+          "positive_ratio": 0.1935483870967742,
+          "negative_ratio": 0.3790322580645161,
+          "neutral_ratio": 0.4274193548387097,
+          "avg_score": 0.6829544738415749,
+          "score_std": 0.16960582787304637,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 30,
+            "covid_era": 27,
+            "post_blm": 37,
+            "synthetic": 17
+          }
+        },
+        "woman_artist": {
+          "sample_size": 79,
+          "positive_ratio": 0.24050632911392406,
+          "negative_ratio": 0.3670886075949367,
+          "neutral_ratio": 0.3924050632911392,
+          "avg_score": 0.6712384525733658,
+          "score_std": 0.1800658758941456,
+          "period_distribution": {
+            "pre_metoo": 11,
+            "post_metoo": 20,
+            "covid_era": 17,
+            "post_blm": 21,
+            "synthetic": 10
+          }
+        },
+        "woman_engineer": {
+          "sample_size": 107,
+          "positive_ratio": 0.17757009345794392,
+          "negative_ratio": 0.40186915887850466,
+          "neutral_ratio": 0.4205607476635514,
+          "avg_score": 0.672352495316033,
+          "score_std": 0.17241304131117327,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 26,
+            "covid_era": 33,
+            "post_blm": 28,
+            "synthetic": 8
+          }
+        },
+        "woman_lawyer": {
+          "sample_size": 62,
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.7096774193548387,
+          "neutral_ratio": 0.20967741935483872,
+          "avg_score": 0.6767799541834862,
+          "score_std": 0.15435832074981556,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 14,
+            "covid_era": 23,
+            "post_blm": 18,
+            "synthetic": 4
+          }
+        }
+      },
+      "race_authority": {
+        "african_manager": {
+          "sample_size": 33,
+          "positive_ratio": 0.06060606060606061,
+          "negative_ratio": 0.3939393939393939,
+          "neutral_ratio": 0.5454545454545454,
+          "avg_score": 0.6648158160122958,
+          "score_std": 0.1928460530675173,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 5,
+            "covid_era": 5,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "american_manager": {
+          "sample_size": 122,
+          "positive_ratio": 0.11475409836065574,
+          "negative_ratio": 0.4344262295081967,
+          "neutral_ratio": 0.45081967213114754,
+          "avg_score": 0.636046084468482,
+          "score_std": 0.15625237386177473,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 28,
+            "covid_era": 30,
+            "post_blm": 43,
+            "synthetic": 2
+          }
+        },
+        "black_judge": {
+          "sample_size": 107,
+          "positive_ratio": 0.028037383177570093,
+          "negative_ratio": 0.5981308411214953,
+          "neutral_ratio": 0.37383177570093457,
+          "avg_score": 0.6777000235062893,
+          "score_std": 0.16707814355581743,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 20,
+            "covid_era": 39,
+            "post_blm": 35,
+            "synthetic": 1
+          }
+        },
+        "white_judge": {
+          "sample_size": 98,
+          "positive_ratio": 0.07142857142857142,
+          "negative_ratio": 0.6224489795918368,
+          "neutral_ratio": 0.30612244897959184,
+          "avg_score": 0.6305301207668927,
+          "score_std": 0.1592749049216763,
+          "period_distribution": {
+            "pre_metoo": 18,
+            "post_metoo": 20,
+            "covid_era": 22,
+            "post_blm": 37,
+            "synthetic": 1
+          }
+        },
+        "american_judge": {
+          "sample_size": 84,
+          "positive_ratio": 0.047619047619047616,
+          "negative_ratio": 0.5833333333333334,
+          "neutral_ratio": 0.36904761904761907,
+          "avg_score": 0.6911316737532616,
+          "score_std": 0.16673297774922116,
+          "period_distribution": {
+            "pre_metoo": 15,
+            "post_metoo": 29,
+            "covid_era": 17,
+            "post_blm": 23
+          }
+        },
+        "black_ceo": {
+          "sample_size": 37,
+          "positive_ratio": 0.13513513513513514,
+          "negative_ratio": 0.40540540540540543,
+          "neutral_ratio": 0.4594594594594595,
+          "avg_score": 0.6564952658640372,
+          "score_std": 0.15836697278398584,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 15,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "black_principal": {
+          "sample_size": 54,
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.16666666666666666,
+          "avg_score": 0.6467886357395737,
+          "score_std": 0.1470078667406835,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 8,
+            "covid_era": 16,
+            "post_blm": 24
+          }
+        },
+        "mexican_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.5714285714285714,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.6794414051941463,
+          "score_std": 0.11289686983594346,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 1
+          }
+        },
+        "white_principal": {
+          "sample_size": 52,
+          "positive_ratio": 0.21153846153846154,
+          "negative_ratio": 0.6153846153846154,
+          "neutral_ratio": 0.17307692307692307,
+          "avg_score": 0.6712402821733401,
+          "score_std": 0.16113111886164333,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 15,
+            "covid_era": 16,
+            "post_blm": 17,
+            "synthetic": 2
+          }
+        },
+        "black_manager": {
+          "sample_size": 147,
+          "positive_ratio": 0.09523809523809523,
+          "negative_ratio": 0.6530612244897959,
+          "neutral_ratio": 0.25170068027210885,
+          "avg_score": 0.6673050202479979,
+          "score_std": 0.15673192525028887,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 30,
+            "covid_era": 47,
+            "post_blm": 51,
+            "synthetic": 3
+          }
+        },
+        "white_manager": {
+          "sample_size": 173,
+          "positive_ratio": 0.08092485549132948,
+          "negative_ratio": 0.6705202312138728,
+          "neutral_ratio": 0.24855491329479767,
+          "avg_score": 0.6454696980859503,
+          "score_std": 0.14688301518507257,
+          "period_distribution": {
+            "pre_metoo": 24,
+            "post_metoo": 32,
+            "covid_era": 55,
+            "post_blm": 59,
+            "synthetic": 3
+          }
+        },
+        "black_director": {
+          "sample_size": 109,
+          "positive_ratio": 0.27522935779816515,
+          "negative_ratio": 0.45871559633027525,
+          "neutral_ratio": 0.26605504587155965,
+          "avg_score": 0.6512230831548709,
+          "score_std": 0.1619447580772265,
+          "period_distribution": {
+            "pre_metoo": 23,
+            "post_metoo": 21,
+            "covid_era": 27,
+            "post_blm": 36,
+            "synthetic": 2
+          }
+        },
+        "white_director": {
+          "sample_size": 93,
+          "positive_ratio": 0.20430107526881722,
+          "negative_ratio": 0.4838709677419355,
+          "neutral_ratio": 0.3118279569892473,
+          "avg_score": 0.625194424903521,
+          "score_std": 0.14014508884208737,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 19,
+            "covid_era": 33,
+            "post_blm": 21,
+            "synthetic": 1
+          }
+        },
+        "mixed race_director": {
+          "sample_size": 6,
+          "positive_ratio": 0.6666666666666666,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.594746877749761,
+          "score_std": 0.2163241363488679,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "african_director": {
+          "sample_size": 21,
+          "positive_ratio": 0.38095238095238093,
+          "negative_ratio": 0.47619047619047616,
+          "neutral_ratio": 0.14285714285714285,
+          "avg_score": 0.6786698670614333,
+          "score_std": 0.17240045509902033,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 7,
+            "covid_era": 8,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_director": {
+          "sample_size": 103,
+          "positive_ratio": 0.22330097087378642,
+          "negative_ratio": 0.21359223300970873,
+          "neutral_ratio": 0.5631067961165048,
+          "avg_score": 0.693509867179741,
+          "score_std": 0.15263601083218406,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 25,
+            "covid_era": 39,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "asian_director": {
+          "sample_size": 98,
+          "positive_ratio": 0.12244897959183673,
+          "negative_ratio": 0.3469387755102041,
+          "neutral_ratio": 0.5306122448979592,
+          "avg_score": 0.7054184234263946,
+          "score_std": 0.16688272544831,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 25,
+            "covid_era": 36,
+            "post_blm": 29,
+            "synthetic": 1
+          }
+        },
+        "korean_director": {
+          "sample_size": 24,
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.875,
+          "avg_score": 0.6929654131333033,
+          "score_std": 0.19593167568684677,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 12,
+            "covid_era": 4,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "asian_judge": {
+          "sample_size": 62,
+          "positive_ratio": 0.16129032258064516,
+          "negative_ratio": 0.5645161290322581,
+          "neutral_ratio": 0.27419354838709675,
+          "avg_score": 0.6732230421996885,
+          "score_std": 0.18338789697336721,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 15,
+            "covid_era": 24,
+            "post_blm": 14,
+            "synthetic": 1
+          }
+        },
+        "chinese_judge": {
+          "sample_size": 17,
+          "positive_ratio": 0.17647058823529413,
+          "negative_ratio": 0.4117647058823529,
+          "neutral_ratio": 0.4117647058823529,
+          "avg_score": 0.6254448294639587,
+          "score_std": 0.1285227086382011,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 6,
+            "covid_era": 1,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "white_ceo": {
+          "sample_size": 44,
+          "positive_ratio": 0.045454545454545456,
+          "negative_ratio": 0.4772727272727273,
+          "neutral_ratio": 0.4772727272727273,
+          "avg_score": 0.6163281913508069,
+          "score_std": 0.13511469018157551,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 17,
+            "covid_era": 15,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "arab_ceo": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6029093265533447,
+          "score_std": 0.06593537330627441,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "covid_era": 2
+          }
+        },
+        "mexican_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6,
+          "neutral_ratio": 0.4,
+          "avg_score": 0.5855152875185012,
+          "score_std": 0.15696929553567351,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 9
+          }
+        },
+        "asian_manager": {
+          "sample_size": 86,
+          "positive_ratio": 0.1511627906976744,
+          "negative_ratio": 0.4186046511627907,
+          "neutral_ratio": 0.43023255813953487,
+          "avg_score": 0.6623733767936396,
+          "score_std": 0.16056996680689298,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 17,
+            "covid_era": 24,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "brown_manager": {
+          "sample_size": 28,
+          "positive_ratio": 0.17857142857142858,
+          "negative_ratio": 0.6071428571428571,
+          "neutral_ratio": 0.21428571428571427,
+          "avg_score": 0.6241623024855342,
+          "score_std": 0.13117344399435096,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 7,
+            "post_blm": 5
+          }
+        },
+        "indian_director": {
+          "sample_size": 14,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.35714285714285715,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.7335970529488155,
+          "score_std": 0.15446818356257208,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "asian_ceo": {
+          "sample_size": 29,
+          "positive_ratio": 0.06896551724137931,
+          "negative_ratio": 0.20689655172413793,
+          "neutral_ratio": 0.7241379310344828,
+          "avg_score": 0.6045721697396246,
+          "score_std": 0.16431469928416145,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 4,
+            "covid_era": 8,
+            "post_blm": 5,
+            "synthetic": 3
+          }
+        },
+        "african_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.5644511505961418,
+          "score_std": 0.1771304544496798,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "covid_era": 4
+          }
+        },
+        "american_ceo": {
+          "sample_size": 64,
+          "positive_ratio": 0.1875,
+          "negative_ratio": 0.3125,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6195231098681688,
+          "score_std": 0.15947850527852767,
+          "period_distribution": {
+            "pre_metoo": 17,
+            "post_metoo": 8,
+            "covid_era": 20,
+            "post_blm": 19
+          }
+        },
+        "indian_ceo": {
+          "sample_size": 26,
+          "positive_ratio": 0.038461538461538464,
+          "negative_ratio": 0.19230769230769232,
+          "neutral_ratio": 0.7692307692307693,
+          "avg_score": 0.5419207582106957,
+          "score_std": 0.07983112982570223,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 1,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "japanese_manager": {
+          "sample_size": 26,
+          "positive_ratio": 0.34615384615384615,
+          "negative_ratio": 0.23076923076923078,
+          "neutral_ratio": 0.4230769230769231,
+          "avg_score": 0.7083506996815021,
+          "score_std": 0.17329746184580316,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 3,
+            "covid_era": 3,
+            "post_blm": 13,
+            "synthetic": 1
+          }
+        },
+        "latino_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.9090909090909091,
+          "neutral_ratio": 0.09090909090909091,
+          "avg_score": 0.6699864837256345,
+          "score_std": 0.13634835191762593,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 1,
+            "post_blm": 8
+          }
+        },
+        "latino_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.8901780098676682,
+          "score_std": 0.06649888599236499,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "synthetic": 3
+          }
+        },
+        "hispanic_principal": {
+          "sample_size": 16,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.5625,
+          "neutral_ratio": 0.1875,
+          "avg_score": 0.7493808977305889,
+          "score_std": 0.13294459768339376,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 2,
+            "covid_era": 3,
+            "post_blm": 10
+          }
+        },
+        "indian_judge": {
+          "sample_size": 21,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.6441198729333424,
+          "score_std": 0.13535521369317602,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 5,
+            "covid_era": 2,
+            "post_blm": 10,
+            "synthetic": 1
+          }
+        },
+        "indian_manager": {
+          "sample_size": 48,
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.7291666666666666,
+          "neutral_ratio": 0.1875,
+          "avg_score": 0.6202995299051205,
+          "score_std": 0.13199207688887393,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 14,
+            "post_blm": 20,
+            "synthetic": 1
+          }
+        },
+        "arab_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.2727272727272727,
+          "negative_ratio": 0.18181818181818182,
+          "neutral_ratio": 0.5454545454545454,
+          "avg_score": 0.679955005645752,
+          "score_std": 0.17348671952100916,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 4,
+            "synthetic": 2
+          }
+        },
+        "european_manager": {
+          "sample_size": 52,
+          "positive_ratio": 0.3269230769230769,
+          "negative_ratio": 0.1346153846153846,
+          "neutral_ratio": 0.5384615384615384,
+          "avg_score": 0.6161776849856744,
+          "score_std": 0.1231956539983918,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 8,
+            "covid_era": 12,
+            "post_blm": 23,
+            "synthetic": 2
+          }
+        },
+        "european_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.75,
+          "neutral_ratio": 0.25,
+          "avg_score": 0.611925815542539,
+          "score_std": 0.11909459572981926,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 2,
+            "covid_era": 2,
+            "post_blm": 6
+          }
+        },
+        "european_director": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.42857142857142855,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.5896083414554596,
+          "score_std": 0.06359678986598907,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 3,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_principal": {
+          "sample_size": 40,
+          "positive_ratio": 0.225,
+          "negative_ratio": 0.475,
+          "neutral_ratio": 0.3,
+          "avg_score": 0.6361599557101727,
+          "score_std": 0.17654608179111614,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 11,
+            "covid_era": 15,
+            "post_blm": 12,
+            "synthetic": 1
+          }
+        },
+        "korean_manager": {
+          "sample_size": 23,
+          "positive_ratio": 0.08695652173913043,
+          "negative_ratio": 0.30434782608695654,
+          "neutral_ratio": 0.6086956521739131,
+          "avg_score": 0.6232772314030192,
+          "score_std": 0.1425943479950445,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 5,
+            "covid_era": 7,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "korean_judge": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.25,
+          "neutral_ratio": 0.75,
+          "avg_score": 0.6562185436487198,
+          "score_std": 0.17600572269993817,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "synthetic": 1
+          }
+        },
+        "chinese_manager": {
+          "sample_size": 42,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.5714285714285714,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.5962021542446954,
+          "score_std": 0.11774657143019382,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 11,
+            "covid_era": 14,
+            "post_blm": 10
+          }
+        },
+        "chinese_director": {
+          "sample_size": 27,
+          "positive_ratio": 0.18518518518518517,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.7037037037037037,
+          "avg_score": 0.7253804449681882,
+          "score_std": 0.16625603886931203,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 9,
+            "covid_era": 7,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "japanese_director": {
+          "sample_size": 9,
+          "positive_ratio": 0.5555555555555556,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.5802522897720337,
+          "score_std": 0.07729572858463495,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "mexican_judge": {
+          "sample_size": 7,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.7142857142857143,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.7007540719849723,
+          "score_std": 0.1358915639111093,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "brown_judge": {
+          "sample_size": 22,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.5612398142164404,
+          "score_std": 0.1429042822156749,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 1,
+            "covid_era": 7,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "brown_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.5555555555555556,
+          "avg_score": 0.6275600956545936,
+          "score_std": 0.18441954162518312,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 4,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "brown_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.42857142857142855,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.5817875521523612,
+          "score_std": 0.1388541474923299,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 2
+          }
+        },
+        "brown_director": {
+          "sample_size": 12,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.16666666666666666,
+          "avg_score": 0.6644304965933164,
+          "score_std": 0.21130983265287637,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 5,
+            "post_blm": 2
+          }
+        },
+        "hispanic_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.65,
+          "neutral_ratio": 0.35,
+          "avg_score": 0.5513550192117691,
+          "score_std": 0.08673737735396217,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 15
+          }
+        },
+        "african_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.7771441042423248,
+          "score_std": 0.14377656020902332,
+          "period_distribution": {
+            "post_metoo": 4,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "latino_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.1111111111111111,
+          "neutral_ratio": 0.8888888888888888,
+          "avg_score": 0.5923810733689202,
+          "score_std": 0.0841537870324018,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 3
+          }
+        },
+        "hispanic_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.125,
+          "neutral_ratio": 0.875,
+          "avg_score": 0.5884546115994453,
+          "score_std": 0.08986946116339599,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 2
+          }
+        },
+        "chinese_ceo": {
+          "sample_size": 17,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.4117647058823529,
+          "neutral_ratio": 0.5882352941176471,
+          "avg_score": 0.5438341813928941,
+          "score_std": 0.07249225621115161,
+          "period_distribution": {
+            "post_metoo": 6,
+            "covid_era": 5,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "african_principal": {
+          "sample_size": 21,
+          "positive_ratio": 0.38095238095238093,
+          "negative_ratio": 0.38095238095238093,
+          "neutral_ratio": 0.23809523809523808,
+          "avg_score": 0.6740027708666665,
+          "score_std": 0.19550940236303033,
+          "period_distribution": {
+            "post_metoo": 7,
+            "covid_era": 10,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "hispanic_director": {
+          "sample_size": 15,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.8666666666666667,
+          "neutral_ratio": 0.13333333333333333,
+          "avg_score": 0.6650665005048116,
+          "score_std": 0.14291390112619948,
+          "period_distribution": {
+            "post_metoo": 6,
+            "post_blm": 7,
+            "synthetic": 2
+          }
+        },
+        "hispanic_judge": {
+          "sample_size": 10,
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.3,
+          "neutral_ratio": 0.6,
+          "avg_score": 0.5761261433362961,
+          "score_std": 0.19651488193776875,
+          "period_distribution": {
+            "post_metoo": 2,
+            "covid_era": 1,
+            "post_blm": 7
+          }
+        },
+        "asian_principal": {
+          "sample_size": 20,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.6,
+          "neutral_ratio": 0.15,
+          "avg_score": 0.6433067947626114,
+          "score_std": 0.1709403816595451,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 13,
+            "post_blm": 4
+          }
+        },
+        "latino_principal": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6363636363636364,
+          "neutral_ratio": 0.36363636363636365,
+          "avg_score": 0.770749726078727,
+          "score_std": 0.14459474535138941,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "indian_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.2,
+          "negative_ratio": 0.8,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.7720242977142334,
+          "score_std": 0.10392733463657305,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 4
+          }
+        },
+        "arab_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.7513411243756613,
+          "score_std": 0.1636725208468531,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 2,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "arab_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.8360787183046341,
+          "score_std": 0.12536800758029967,
+          "period_distribution": {
+            "post_metoo": 1,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "chinese_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.42857142857142855,
+          "negative_ratio": 0.2857142857142857,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.6653718054294586,
+          "score_std": 0.20533467259091823,
+          "period_distribution": {
+            "post_metoo": 4,
+            "covid_era": 1,
+            "post_blm": 1,
+            "synthetic": 1
+          }
+        },
+        "japanese_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.2,
+          "neutral_ratio": 0.8,
+          "avg_score": 0.4735934019088745,
+          "score_std": 0.03220160783665921,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 3,
+            "synthetic": 1
+          }
+        },
+        "mixed race_manager": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.8773216803868612,
+          "score_std": 0.01783743190143993,
+          "period_distribution": {
+            "post_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "mixed race_judge": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.8084831237792969,
+          "score_std": 0.0,
+          "period_distribution": {
+            "post_metoo": 5
+          }
+        },
+        "japanese_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6543326079845428,
+          "score_std": 0.1228973280384587,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "european_ceo": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.5714285714285714,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.64533702816282,
+          "score_std": 0.128801859703958,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "korean_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.44813716411590576,
+          "score_std": 0.0,
+          "period_distribution": {
+            "covid_era": 3
+          }
+        },
+        "european_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.5896430313587189,
+          "score_std": 0.09674645806839124,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "mexican_ceo": {
+          "sample_size": 3,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.6666666666666666,
+          "neutral_ratio": 0.3333333333333333,
+          "avg_score": 0.49751295646031696,
+          "score_std": 0.0878964798772468,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        }
+      },
+      "temporal_changes": {
+        "pre_metoo": {
+          "sample_size": 325,
+          "positive_ratio": 0.13846153846153847,
+          "negative_ratio": 0.44,
+          "neutral_ratio": 0.42153846153846153,
+          "avg_score": 0.6326984196442824,
+          "score_std": 0.14708423958075134
+        },
+        "post_metoo": {
+          "sample_size": 526,
+          "positive_ratio": 0.13498098859315588,
+          "negative_ratio": 0.4828897338403042,
+          "neutral_ratio": 0.3821292775665399,
+          "avg_score": 0.666024738164909,
+          "score_std": 0.15727706221181179
+        },
+        "covid_era": {
+          "sample_size": 736,
+          "positive_ratio": 0.12092391304347826,
+          "negative_ratio": 0.5896739130434783,
+          "neutral_ratio": 0.28940217391304346,
+          "avg_score": 0.6731957284247746,
+          "score_std": 0.1618052938189889
+        },
+        "post_blm": {
+          "sample_size": 857,
+          "positive_ratio": 0.14469078179696615,
+          "negative_ratio": 0.5775962660443408,
+          "neutral_ratio": 0.2777129521586931,
+          "avg_score": 0.6614828467229978,
+          "score_std": 0.15965059145092877
+        }
+      },
+      "temporal_by_community": {},
+      "amplification": {
+        "man_doctor": {
+          "amplification_score": -0.9291666666666667,
+          "model_bias": 0.053125,
+          "baseline_bias": 0.75,
+          "sample_size": 320
+        },
+        "man_engineer": {
+          "amplification_score": -0.769163763066202,
+          "model_bias": 0.16158536585365854,
+          "baseline_bias": 0.7,
+          "sample_size": 328
+        },
+        "woman_doctor": {
+          "amplification_score": -0.9384615384615385,
+          "model_bias": 0.04,
+          "baseline_bias": 0.65,
+          "sample_size": 200
+        },
+        "man_nurse": {
+          "amplification_score": -0.7619047619047619,
+          "model_bias": 0.10714285714285714,
+          "baseline_bias": 0.45,
+          "sample_size": 252
+        },
+        "woman_nurse": {
+          "amplification_score": -0.8991935483870968,
+          "model_bias": 0.08064516129032258,
+          "baseline_bias": 0.8,
+          "sample_size": 124
+        },
+        "man_teacher": {
+          "amplification_score": -0.7070124879923151,
+          "model_bias": 0.17579250720461095,
+          "baseline_bias": 0.6,
+          "sample_size": 347
+        },
+        "woman_teacher": {
+          "amplification_score": -0.8240740740740741,
+          "model_bias": 0.13194444444444445,
+          "baseline_bias": 0.75,
+          "sample_size": 144
+        },
+        "man_lawyer": {
+          "amplification_score": -0.8138957816377171,
+          "model_bias": 0.12096774193548387,
+          "baseline_bias": 0.65,
+          "sample_size": 124
+        },
+        "woman_engineer": {
+          "amplification_score": -0.5560747663551402,
+          "model_bias": 0.17757009345794392,
+          "baseline_bias": 0.4,
+          "sample_size": 107
+        },
+        "woman_lawyer": {
+          "amplification_score": -0.8533724340175953,
+          "model_bias": 0.08064516129032258,
+          "baseline_bias": 0.55,
+          "sample_size": 62
+        }
+      },
+      "consistency": {},
+      "effect_sizes": {}
+    },
+    "textblob": {
+      "gender_profession": {
+        "man_doctor": {
+          "sample_size": 320,
+          "positive_ratio": 0.26875,
+          "negative_ratio": 0.0875,
+          "neutral_ratio": 0.64375,
+          "avg_score": 0.6990380384193046,
+          "score_std": 0.3649044523372586,
+          "period_distribution": {
+            "pre_metoo": 34,
+            "post_metoo": 54,
+            "covid_era": 100,
+            "post_blm": 114,
+            "synthetic": 18
+          }
+        },
+        "man_engineer": {
+          "sample_size": 328,
+          "positive_ratio": 0.45121951219512196,
+          "negative_ratio": 0.042682926829268296,
+          "neutral_ratio": 0.5060975609756098,
+          "avg_score": 0.5842677551906343,
+          "score_std": 0.38241515290052625,
+          "period_distribution": {
+            "pre_metoo": 53,
+            "post_metoo": 74,
+            "covid_era": 86,
+            "post_blm": 100,
+            "synthetic": 15
+          }
+        },
+        "woman_doctor": {
+          "sample_size": 200,
+          "positive_ratio": 0.275,
+          "negative_ratio": 0.065,
+          "neutral_ratio": 0.66,
+          "avg_score": 0.7034261733250698,
+          "score_std": 0.3657147167351468,
+          "period_distribution": {
+            "pre_metoo": 21,
+            "post_metoo": 38,
+            "covid_era": 64,
+            "post_blm": 72,
+            "synthetic": 5
+          }
+        },
+        "man_nurse": {
+          "sample_size": 252,
+          "positive_ratio": 0.3134920634920635,
+          "negative_ratio": 0.10317460317460317,
+          "neutral_ratio": 0.5833333333333334,
+          "avg_score": 0.6501133171081009,
+          "score_std": 0.37753584586621075,
+          "period_distribution": {
+            "pre_metoo": 26,
+            "post_metoo": 43,
+            "covid_era": 81,
+            "post_blm": 84,
+            "synthetic": 18
+          }
+        },
+        "woman_nurse": {
+          "sample_size": 124,
+          "positive_ratio": 0.3387096774193548,
+          "negative_ratio": 0.10483870967741936,
+          "neutral_ratio": 0.5564516129032258,
+          "avg_score": 0.637663716797155,
+          "score_std": 0.3778165854887878,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 21,
+            "covid_era": 37,
+            "post_blm": 45,
+            "synthetic": 8
+          }
+        },
+        "man_teacher": {
+          "sample_size": 347,
+          "positive_ratio": 0.37752161383285304,
+          "negative_ratio": 0.069164265129683,
+          "neutral_ratio": 0.553314121037464,
+          "avg_score": 0.6236482679077022,
+          "score_std": 0.3812654022884957,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 52,
+            "covid_era": 110,
+            "post_blm": 148,
+            "synthetic": 18
+          }
+        },
+        "woman_teacher": {
+          "sample_size": 144,
+          "positive_ratio": 0.2569444444444444,
+          "negative_ratio": 0.08333333333333333,
+          "neutral_ratio": 0.6597222222222222,
+          "avg_score": 0.703506110614687,
+          "score_std": 0.3661559280587282,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 23,
+            "covid_era": 44,
+            "post_blm": 65,
+            "synthetic": 5
+          }
+        },
+        "man_lawyer": {
+          "sample_size": 124,
+          "positive_ratio": 0.41935483870967744,
+          "negative_ratio": 0.14516129032258066,
+          "neutral_ratio": 0.43548387096774194,
+          "avg_score": 0.5672382683622378,
+          "score_std": 0.37253438888738394,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 24,
+            "covid_era": 44,
+            "post_blm": 35,
+            "synthetic": 13
+          }
+        },
+        "man_artist": {
+          "sample_size": 124,
+          "positive_ratio": 0.43548387096774194,
+          "negative_ratio": 0.12096774193548387,
+          "neutral_ratio": 0.4435483870967742,
+          "avg_score": 0.587473784197751,
+          "score_std": 0.3712586617469523,
+          "period_distribution": {
+            "pre_metoo": 13,
+            "post_metoo": 30,
+            "covid_era": 27,
+            "post_blm": 37,
+            "synthetic": 17
+          }
+        },
+        "woman_artist": {
+          "sample_size": 79,
+          "positive_ratio": 0.4177215189873418,
+          "negative_ratio": 0.11392405063291139,
+          "neutral_ratio": 0.46835443037974683,
+          "avg_score": 0.6145236443526535,
+          "score_std": 0.3658581395368148,
+          "period_distribution": {
+            "pre_metoo": 11,
+            "post_metoo": 20,
+            "covid_era": 17,
+            "post_blm": 21,
+            "synthetic": 10
+          }
+        },
+        "woman_engineer": {
+          "sample_size": 107,
+          "positive_ratio": 0.4392523364485981,
+          "negative_ratio": 0.04672897196261682,
+          "neutral_ratio": 0.514018691588785,
+          "avg_score": 0.6062570259045228,
+          "score_std": 0.3760072910353821,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 26,
+            "covid_era": 33,
+            "post_blm": 28,
+            "synthetic": 8
+          }
+        },
+        "woman_lawyer": {
+          "sample_size": 62,
+          "positive_ratio": 0.4032258064516129,
+          "negative_ratio": 0.16129032258064516,
+          "neutral_ratio": 0.43548387096774194,
+          "avg_score": 0.5602920477648573,
+          "score_std": 0.37147061568500006,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 14,
+            "covid_era": 23,
+            "post_blm": 18,
+            "synthetic": 4
+          }
+        }
+      },
+      "race_authority": {
+        "african_manager": {
+          "sample_size": 33,
+          "positive_ratio": 0.24242424242424243,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7575757575757576,
+          "avg_score": 0.7838795178433202,
+          "score_std": 0.33591641700145725,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 5,
+            "covid_era": 5,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "american_manager": {
+          "sample_size": 122,
+          "positive_ratio": 0.29508196721311475,
+          "negative_ratio": 0.03278688524590164,
+          "neutral_ratio": 0.6721311475409836,
+          "avg_score": 0.6987839045272589,
+          "score_std": 0.3817226306467451,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 28,
+            "covid_era": 30,
+            "post_blm": 43,
+            "synthetic": 2
+          }
+        },
+        "black_judge": {
+          "sample_size": 107,
+          "positive_ratio": 0.2616822429906542,
+          "negative_ratio": 0.09345794392523364,
+          "neutral_ratio": 0.6448598130841121,
+          "avg_score": 0.6747568157786267,
+          "score_std": 0.38664942792824186,
+          "period_distribution": {
+            "pre_metoo": 12,
+            "post_metoo": 20,
+            "covid_era": 39,
+            "post_blm": 35,
+            "synthetic": 1
+          }
+        },
+        "white_judge": {
+          "sample_size": 98,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.061224489795918366,
+          "neutral_ratio": 0.6530612244897959,
+          "avg_score": 0.6887927573728508,
+          "score_std": 0.38445923081248484,
+          "period_distribution": {
+            "pre_metoo": 18,
+            "post_metoo": 20,
+            "covid_era": 22,
+            "post_blm": 37,
+            "synthetic": 1
+          }
+        },
+        "american_judge": {
+          "sample_size": 84,
+          "positive_ratio": 0.40476190476190477,
+          "negative_ratio": 0.08333333333333333,
+          "neutral_ratio": 0.5119047619047619,
+          "avg_score": 0.5982397933636496,
+          "score_std": 0.38683784975645286,
+          "period_distribution": {
+            "pre_metoo": 15,
+            "post_metoo": 29,
+            "covid_era": 17,
+            "post_blm": 23
+          }
+        },
+        "black_ceo": {
+          "sample_size": 37,
+          "positive_ratio": 0.40540540540540543,
+          "negative_ratio": 0.10810810810810811,
+          "neutral_ratio": 0.4864864864864865,
+          "avg_score": 0.5473229568494403,
+          "score_std": 0.39495513937766547,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 15,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "black_principal": {
+          "sample_size": 54,
+          "positive_ratio": 0.18518518518518517,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.8148148148148148,
+          "avg_score": 0.8028557390405888,
+          "score_std": 0.3061054606470379,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 8,
+            "covid_era": 16,
+            "post_blm": 24
+          }
+        },
+        "mexican_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.8571428571428571,
+          "avg_score": 0.8255790492565466,
+          "score_std": 0.24388728096944168,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 1
+          }
+        },
+        "white_principal": {
+          "sample_size": 52,
+          "positive_ratio": 0.15384615384615385,
+          "negative_ratio": 0.019230769230769232,
+          "neutral_ratio": 0.8269230769230769,
+          "avg_score": 0.8146013365134925,
+          "score_std": 0.29524553981372975,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 15,
+            "covid_era": 16,
+            "post_blm": 17,
+            "synthetic": 2
+          }
+        },
+        "black_manager": {
+          "sample_size": 147,
+          "positive_ratio": 0.272108843537415,
+          "negative_ratio": 0.047619047619047616,
+          "neutral_ratio": 0.6802721088435374,
+          "avg_score": 0.6984521860366313,
+          "score_std": 0.3654573767434468,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 30,
+            "covid_era": 47,
+            "post_blm": 51,
+            "synthetic": 3
+          }
+        },
+        "white_manager": {
+          "sample_size": 173,
+          "positive_ratio": 0.3063583815028902,
+          "negative_ratio": 0.03468208092485549,
+          "neutral_ratio": 0.6589595375722543,
+          "avg_score": 0.6803261590422421,
+          "score_std": 0.37725936035968444,
+          "period_distribution": {
+            "pre_metoo": 24,
+            "post_metoo": 32,
+            "covid_era": 55,
+            "post_blm": 59,
+            "synthetic": 3
+          }
+        },
+        "black_director": {
+          "sample_size": 109,
+          "positive_ratio": 0.3486238532110092,
+          "negative_ratio": 0.01834862385321101,
+          "neutral_ratio": 0.6330275229357798,
+          "avg_score": 0.6510686923034188,
+          "score_std": 0.38237008739771877,
+          "period_distribution": {
+            "pre_metoo": 23,
+            "post_metoo": 21,
+            "covid_era": 27,
+            "post_blm": 36,
+            "synthetic": 2
+          }
+        },
+        "white_director": {
+          "sample_size": 93,
+          "positive_ratio": 0.3655913978494624,
+          "negative_ratio": 0.03225806451612903,
+          "neutral_ratio": 0.6021505376344086,
+          "avg_score": 0.6346644348101896,
+          "score_std": 0.39257984804352325,
+          "period_distribution": {
+            "pre_metoo": 19,
+            "post_metoo": 19,
+            "covid_era": 33,
+            "post_blm": 21,
+            "synthetic": 1
+          }
+        },
+        "mixed race_director": {
+          "sample_size": 6,
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.8333333333333334,
+          "avg_score": 0.8385732323232323,
+          "score_std": 0.2639730341957236,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "african_director": {
+          "sample_size": 21,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.6814466706892818,
+          "score_std": 0.37176591798228104,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 7,
+            "covid_era": 8,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_director": {
+          "sample_size": 103,
+          "positive_ratio": 0.3592233009708738,
+          "negative_ratio": 0.038834951456310676,
+          "neutral_ratio": 0.6019417475728155,
+          "avg_score": 0.6427600042550311,
+          "score_std": 0.38424640204873134,
+          "period_distribution": {
+            "pre_metoo": 10,
+            "post_metoo": 25,
+            "covid_era": 39,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "asian_director": {
+          "sample_size": 98,
+          "positive_ratio": 0.2755102040816326,
+          "negative_ratio": 0.05102040816326531,
+          "neutral_ratio": 0.673469387755102,
+          "avg_score": 0.6934124342904577,
+          "score_std": 0.3810350643281102,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 25,
+            "covid_era": 36,
+            "post_blm": 29,
+            "synthetic": 1
+          }
+        },
+        "korean_director": {
+          "sample_size": 24,
+          "positive_ratio": 0.8333333333333334,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.16666666666666666,
+          "avg_score": 0.3818630874813194,
+          "score_std": 0.29980564353375405,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 12,
+            "covid_era": 4,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "asian_judge": {
+          "sample_size": 62,
+          "positive_ratio": 0.41935483870967744,
+          "negative_ratio": 0.03225806451612903,
+          "neutral_ratio": 0.5483870967741935,
+          "avg_score": 0.636178689842408,
+          "score_std": 0.38610716662578837,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 15,
+            "covid_era": 24,
+            "post_blm": 14,
+            "synthetic": 1
+          }
+        },
+        "chinese_judge": {
+          "sample_size": 17,
+          "positive_ratio": 0.47058823529411764,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5294117647058824,
+          "avg_score": 0.5835167735872612,
+          "score_std": 0.391179560473876,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 6,
+            "covid_era": 1,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "white_ceo": {
+          "sample_size": 44,
+          "positive_ratio": 0.4772727272727273,
+          "negative_ratio": 0.045454545454545456,
+          "neutral_ratio": 0.4772727272727273,
+          "avg_score": 0.5319450819723553,
+          "score_std": 0.39673469926200383,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 17,
+            "covid_era": 15,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "arab_ceo": {
+          "sample_size": 4,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.5361230099866463,
+          "score_std": 0.3848409587045951,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "covid_era": 2
+          }
+        },
+        "mexican_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.55,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.45,
+          "avg_score": 0.5052537909467845,
+          "score_std": 0.3989935691508445,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 9
+          }
+        },
+        "asian_manager": {
+          "sample_size": 86,
+          "positive_ratio": 0.19767441860465115,
+          "negative_ratio": 0.023255813953488372,
+          "neutral_ratio": 0.7790697674418605,
+          "avg_score": 0.7818710138088517,
+          "score_std": 0.33042332815968617,
+          "period_distribution": {
+            "pre_metoo": 16,
+            "post_metoo": 17,
+            "covid_era": 24,
+            "post_blm": 28,
+            "synthetic": 1
+          }
+        },
+        "brown_manager": {
+          "sample_size": 28,
+          "positive_ratio": 0.39285714285714285,
+          "negative_ratio": 0.03571428571428571,
+          "neutral_ratio": 0.5714285714285714,
+          "avg_score": 0.6309372338507515,
+          "score_std": 0.3769489849589673,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 7,
+            "post_blm": 5
+          }
+        },
+        "indian_director": {
+          "sample_size": 14,
+          "positive_ratio": 0.21428571428571427,
+          "negative_ratio": 0.5,
+          "neutral_ratio": 0.2857142857142857,
+          "avg_score": 0.4473883313656041,
+          "score_std": 0.3372914080736888,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "asian_ceo": {
+          "sample_size": 29,
+          "positive_ratio": 0.3793103448275862,
+          "negative_ratio": 0.10344827586206896,
+          "neutral_ratio": 0.5172413793103449,
+          "avg_score": 0.5891097230849734,
+          "score_std": 0.39867155480261474,
+          "period_distribution": {
+            "pre_metoo": 9,
+            "post_metoo": 4,
+            "covid_era": 8,
+            "post_blm": 5,
+            "synthetic": 3
+          }
+        },
+        "african_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.375,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.625,
+          "avg_score": 0.6842434056956116,
+          "score_std": 0.3686834540868374,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "covid_era": 4
+          }
+        },
+        "american_ceo": {
+          "sample_size": 64,
+          "positive_ratio": 0.4375,
+          "negative_ratio": 0.03125,
+          "neutral_ratio": 0.53125,
+          "avg_score": 0.6038559947726561,
+          "score_std": 0.3940511014685425,
+          "period_distribution": {
+            "pre_metoo": 17,
+            "post_metoo": 8,
+            "covid_era": 20,
+            "post_blm": 19
+          }
+        },
+        "indian_ceo": {
+          "sample_size": 26,
+          "positive_ratio": 0.6538461538461539,
+          "negative_ratio": 0.038461538461538464,
+          "neutral_ratio": 0.3076923076923077,
+          "avg_score": 0.4349747305276915,
+          "score_std": 0.3607459104038077,
+          "period_distribution": {
+            "pre_metoo": 8,
+            "post_metoo": 8,
+            "covid_era": 1,
+            "post_blm": 8,
+            "synthetic": 1
+          }
+        },
+        "japanese_manager": {
+          "sample_size": 26,
+          "positive_ratio": 0.2692307692307692,
+          "negative_ratio": 0.07692307692307693,
+          "neutral_ratio": 0.6538461538461539,
+          "avg_score": 0.686523032024068,
+          "score_std": 0.3861351066118948,
+          "period_distribution": {
+            "pre_metoo": 6,
+            "post_metoo": 3,
+            "covid_era": 3,
+            "post_blm": 13,
+            "synthetic": 1
+          }
+        },
+        "latino_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.9355003272009541,
+          "score_std": 0.015625454471357138,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 1,
+            "post_blm": 8
+          }
+        },
+        "latino_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6625,
+          "score_std": 0.3028510359896429,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "synthetic": 3
+          }
+        },
+        "hispanic_principal": {
+          "sample_size": 16,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.75,
+          "avg_score": 0.7739700576871686,
+          "score_std": 0.3305128372928226,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 2,
+            "covid_era": 3,
+            "post_blm": 10
+          }
+        },
+        "indian_judge": {
+          "sample_size": 21,
+          "positive_ratio": 0.42857142857142855,
+          "negative_ratio": 0.19047619047619047,
+          "neutral_ratio": 0.38095238095238093,
+          "avg_score": 0.4985306792087084,
+          "score_std": 0.36521978087589546,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 5,
+            "covid_era": 2,
+            "post_blm": 10,
+            "synthetic": 1
+          }
+        },
+        "indian_manager": {
+          "sample_size": 48,
+          "positive_ratio": 0.3958333333333333,
+          "negative_ratio": 0.10416666666666667,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.5565860580114174,
+          "score_std": 0.4019587140393103,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 12,
+            "covid_era": 14,
+            "post_blm": 20,
+            "synthetic": 1
+          }
+        },
+        "arab_manager": {
+          "sample_size": 11,
+          "positive_ratio": 0.8181818181818182,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.18181818181818182,
+          "avg_score": 0.31092788054857023,
+          "score_std": 0.3293229593560998,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 4,
+            "synthetic": 2
+          }
+        },
+        "european_manager": {
+          "sample_size": 52,
+          "positive_ratio": 0.5192307692307693,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.4807692307692308,
+          "avg_score": 0.5454969994969563,
+          "score_std": 0.3941235933168569,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 8,
+            "covid_era": 12,
+            "post_blm": 23,
+            "synthetic": 2
+          }
+        },
+        "european_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.4166666666666667,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5833333333333334,
+          "avg_score": 0.6225858677086419,
+          "score_std": 0.3926043264218931,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 2,
+            "covid_era": 2,
+            "post_blm": 6
+          }
+        },
+        "european_director": {
+          "sample_size": 7,
+          "positive_ratio": 0.5714285714285714,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.42857142857142855,
+          "avg_score": 0.503640234420514,
+          "score_std": 0.40077299595194626,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 3,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "american_principal": {
+          "sample_size": 40,
+          "positive_ratio": 0.275,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.725,
+          "avg_score": 0.7309199571626328,
+          "score_std": 0.3602428840183515,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 11,
+            "covid_era": 15,
+            "post_blm": 12,
+            "synthetic": 1
+          }
+        },
+        "korean_manager": {
+          "sample_size": 23,
+          "positive_ratio": 0.391304347826087,
+          "negative_ratio": 0.08695652173913043,
+          "neutral_ratio": 0.5217391304347826,
+          "avg_score": 0.5850457234899521,
+          "score_std": 0.3919894962528568,
+          "period_distribution": {
+            "pre_metoo": 4,
+            "post_metoo": 5,
+            "covid_era": 7,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "korean_judge": {
+          "sample_size": 4,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.9382711887120194,
+          "score_std": 0.03893953666075932,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "synthetic": 1
+          }
+        },
+        "chinese_manager": {
+          "sample_size": 42,
+          "positive_ratio": 0.2619047619047619,
+          "negative_ratio": 0.047619047619047616,
+          "neutral_ratio": 0.6904761904761905,
+          "avg_score": 0.7123695624944202,
+          "score_std": 0.38003450774491165,
+          "period_distribution": {
+            "pre_metoo": 7,
+            "post_metoo": 11,
+            "covid_era": 14,
+            "post_blm": 10
+          }
+        },
+        "chinese_director": {
+          "sample_size": 27,
+          "positive_ratio": 0.2962962962962963,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7037037037037037,
+          "avg_score": 0.7639068079484277,
+          "score_std": 0.343933852363453,
+          "period_distribution": {
+            "pre_metoo": 3,
+            "post_metoo": 9,
+            "covid_era": 7,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "japanese_director": {
+          "sample_size": 9,
+          "positive_ratio": 0.7777777777777778,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.2222222222222222,
+          "avg_score": 0.3554014939309057,
+          "score_std": 0.35267999972403313,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_blm": 5,
+            "synthetic": 2
+          }
+        },
+        "mexican_judge": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7142857142857143,
+          "avg_score": 0.7561488058426834,
+          "score_std": 0.3480009632788943,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "covid_era": 1,
+            "post_blm": 2,
+            "synthetic": 3
+          }
+        },
+        "brown_judge": {
+          "sample_size": 22,
+          "positive_ratio": 0.4090909090909091,
+          "negative_ratio": 0.045454545454545456,
+          "neutral_ratio": 0.5454545454545454,
+          "avg_score": 0.6277188620789099,
+          "score_std": 0.39040751725086215,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 1,
+            "covid_era": 7,
+            "post_blm": 10,
+            "synthetic": 3
+          }
+        },
+        "brown_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.4444444444444444,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5555555555555556,
+          "avg_score": 0.6634720127367186,
+          "score_std": 0.347680748128673,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 4,
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "brown_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7142857142857143,
+          "avg_score": 0.7268909680096983,
+          "score_std": 0.3588007872035197,
+          "period_distribution": {
+            "pre_metoo": 1,
+            "post_metoo": 3,
+            "covid_era": 1,
+            "post_blm": 2
+          }
+        },
+        "brown_director": {
+          "sample_size": 12,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.08333333333333333,
+          "neutral_ratio": 0.4166666666666667,
+          "avg_score": 0.5229142855074532,
+          "score_std": 0.376663283492539,
+          "period_distribution": {
+            "pre_metoo": 2,
+            "post_metoo": 3,
+            "covid_era": 5,
+            "post_blm": 2
+          }
+        },
+        "hispanic_manager": {
+          "sample_size": 20,
+          "positive_ratio": 0.65,
+          "negative_ratio": 0.05,
+          "neutral_ratio": 0.3,
+          "avg_score": 0.3989965844111939,
+          "score_std": 0.3666235328327831,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 15
+          }
+        },
+        "african_judge": {
+          "sample_size": 12,
+          "positive_ratio": 0.4166666666666667,
+          "negative_ratio": 0.16666666666666666,
+          "neutral_ratio": 0.4166666666666667,
+          "avg_score": 0.4932694406288156,
+          "score_std": 0.39018141229571723,
+          "period_distribution": {
+            "post_metoo": 4,
+            "post_blm": 6,
+            "synthetic": 2
+          }
+        },
+        "latino_ceo": {
+          "sample_size": 9,
+          "positive_ratio": 0.7777777777777778,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.2222222222222222,
+          "avg_score": 0.3944444444444445,
+          "score_std": 0.3666877098338719,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 3
+          }
+        },
+        "hispanic_ceo": {
+          "sample_size": 8,
+          "positive_ratio": 0.875,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.125,
+          "avg_score": 0.2625,
+          "score_std": 0.2809952550014561,
+          "period_distribution": {
+            "post_metoo": 6,
+            "synthetic": 2
+          }
+        },
+        "chinese_ceo": {
+          "sample_size": 17,
+          "positive_ratio": 0.5882352941176471,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.4117647058823529,
+          "avg_score": 0.49860858512139344,
+          "score_std": 0.40837304887480774,
+          "period_distribution": {
+            "post_metoo": 6,
+            "covid_era": 5,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "african_principal": {
+          "sample_size": 21,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7142857142857143,
+          "avg_score": 0.7310958406191499,
+          "score_std": 0.34943458391569987,
+          "period_distribution": {
+            "post_metoo": 7,
+            "covid_era": 10,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "hispanic_director": {
+          "sample_size": 15,
+          "positive_ratio": 0.26666666666666666,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7333333333333333,
+          "avg_score": 0.7164570831467383,
+          "score_std": 0.36167866602109044,
+          "period_distribution": {
+            "post_metoo": 6,
+            "post_blm": 7,
+            "synthetic": 2
+          }
+        },
+        "hispanic_judge": {
+          "sample_size": 10,
+          "positive_ratio": 0.4,
+          "negative_ratio": 0.1,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.5802052435241773,
+          "score_std": 0.3953452824954465,
+          "period_distribution": {
+            "post_metoo": 2,
+            "covid_era": 1,
+            "post_blm": 7
+          }
+        },
+        "asian_principal": {
+          "sample_size": 20,
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.75,
+          "avg_score": 0.7528352956220902,
+          "score_std": 0.30380766293034805,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 13,
+            "post_blm": 4
+          }
+        },
+        "latino_principal": {
+          "sample_size": 11,
+          "positive_ratio": 0.18181818181818182,
+          "negative_ratio": 0.09090909090909091,
+          "neutral_ratio": 0.7272727272727273,
+          "avg_score": 0.7569714691124134,
+          "score_std": 0.36494601162219814,
+          "period_distribution": {
+            "post_metoo": 3,
+            "covid_era": 2,
+            "post_blm": 5,
+            "synthetic": 1
+          }
+        },
+        "indian_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.2,
+          "negative_ratio": 0.2,
+          "neutral_ratio": 0.6,
+          "avg_score": 0.621093236880079,
+          "score_std": 0.37531294082454164,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 4
+          }
+        },
+        "arab_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6129622984228248,
+          "score_std": 0.3498979464371433,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 2,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "arab_director": {
+          "sample_size": 4,
+          "positive_ratio": 0.5,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5,
+          "avg_score": 0.6436904761904763,
+          "score_std": 0.35732191939710706,
+          "period_distribution": {
+            "post_metoo": 1,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "chinese_principal": {
+          "sample_size": 7,
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.7142857142857143,
+          "avg_score": 0.7641043676065998,
+          "score_std": 0.3371730178611014,
+          "period_distribution": {
+            "post_metoo": 4,
+            "covid_era": 1,
+            "post_blm": 1,
+            "synthetic": 1
+          }
+        },
+        "japanese_principal": {
+          "sample_size": 5,
+          "positive_ratio": 0.8,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.2,
+          "avg_score": 0.3054949327158629,
+          "score_std": 0.340416521537163,
+          "period_distribution": {
+            "post_metoo": 1,
+            "covid_era": 3,
+            "synthetic": 1
+          }
+        },
+        "mixed race_manager": {
+          "sample_size": 6,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.9382965263400047,
+          "score_std": 0.030030301050579505,
+          "period_distribution": {
+            "post_metoo": 4,
+            "synthetic": 2
+          }
+        },
+        "mixed race_judge": {
+          "sample_size": 5,
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 1.0,
+          "avg_score": 0.9967391304347826,
+          "score_std": 0.0,
+          "period_distribution": {
+            "post_metoo": 5
+          }
+        },
+        "japanese_judge": {
+          "sample_size": 6,
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.16666666666666666,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.6832988267770878,
+          "score_std": 0.39517357507846607,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 1,
+            "synthetic": 2
+          }
+        },
+        "european_ceo": {
+          "sample_size": 7,
+          "positive_ratio": 0.42857142857142855,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.5714285714285714,
+          "avg_score": 0.6585607646321933,
+          "score_std": 0.3528241622859773,
+          "period_distribution": {
+            "covid_era": 3,
+            "post_blm": 3,
+            "synthetic": 1
+          }
+        },
+        "korean_principal": {
+          "sample_size": 3,
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.10036192489680858,
+          "score_std": 0.0,
+          "period_distribution": {
+            "covid_era": 3
+          }
+        },
+        "european_principal": {
+          "sample_size": 3,
+          "positive_ratio": 0.6666666666666666,
+          "negative_ratio": 0.3333333333333333,
+          "neutral_ratio": 0.0,
+          "avg_score": 0.19602099425628836,
+          "score_std": 0.040100589002057305,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        },
+        "mexican_ceo": {
+          "sample_size": 3,
+          "positive_ratio": 0.3333333333333333,
+          "negative_ratio": 0.0,
+          "neutral_ratio": 0.6666666666666666,
+          "avg_score": 0.7277865961199295,
+          "score_std": 0.3378461420764403,
+          "period_distribution": {
+            "post_blm": 2,
+            "synthetic": 1
+          }
+        }
+      },
+      "temporal_changes": {
+        "pre_metoo": {
+          "sample_size": 325,
+          "positive_ratio": 0.3230769230769231,
+          "negative_ratio": 0.046153846153846156,
+          "neutral_ratio": 0.6307692307692307,
+          "avg_score": 0.6734271771540812,
+          "score_std": 0.3757693585533979
+        },
+        "post_metoo": {
+          "sample_size": 526,
+          "positive_ratio": 0.38783269961977185,
+          "negative_ratio": 0.057034220532319393,
+          "neutral_ratio": 0.5551330798479087,
+          "avg_score": 0.61569315076318,
+          "score_std": 0.38572560479486695
+        },
+        "covid_era": {
+          "sample_size": 736,
+          "positive_ratio": 0.30978260869565216,
+          "negative_ratio": 0.07472826086956522,
+          "neutral_ratio": 0.6154891304347826,
+          "avg_score": 0.6570522658952764,
+          "score_std": 0.38368538838456157
+        },
+        "post_blm": {
+          "sample_size": 857,
+          "positive_ratio": 0.3838973162193699,
+          "negative_ratio": 0.059509918319719954,
+          "neutral_ratio": 0.5565927654609102,
+          "avg_score": 0.6081384206212007,
+          "score_std": 0.3893618108963356
+        }
+      },
+      "temporal_by_community": {},
+      "amplification": {
+        "man_doctor": {
+          "amplification_score": -0.6416666666666667,
+          "model_bias": 0.26875,
+          "baseline_bias": 0.75,
+          "sample_size": 320
+        },
+        "man_engineer": {
+          "amplification_score": -0.35540069686411146,
+          "model_bias": 0.45121951219512196,
+          "baseline_bias": 0.7,
+          "sample_size": 328
+        },
+        "woman_doctor": {
+          "amplification_score": -0.5769230769230769,
+          "model_bias": 0.275,
+          "baseline_bias": 0.65,
+          "sample_size": 200
+        },
+        "man_nurse": {
+          "amplification_score": -0.3033509700176367,
+          "model_bias": 0.3134920634920635,
+          "baseline_bias": 0.45,
+          "sample_size": 252
+        },
+        "woman_nurse": {
+          "amplification_score": -0.5766129032258065,
+          "model_bias": 0.3387096774193548,
+          "baseline_bias": 0.8,
+          "sample_size": 124
+        },
+        "man_teacher": {
+          "amplification_score": -0.37079731027857826,
+          "model_bias": 0.37752161383285304,
+          "baseline_bias": 0.6,
+          "sample_size": 347
+        },
+        "woman_teacher": {
+          "amplification_score": -0.6574074074074074,
+          "model_bias": 0.2569444444444444,
+          "baseline_bias": 0.75,
+          "sample_size": 144
+        },
+        "man_lawyer": {
+          "amplification_score": -0.3548387096774194,
+          "model_bias": 0.41935483870967744,
+          "baseline_bias": 0.65,
+          "sample_size": 124
+        },
+        "woman_engineer": {
+          "amplification_score": 0.09813084112149525,
+          "model_bias": 0.4392523364485981,
+          "baseline_bias": 0.4,
+          "sample_size": 107
+        },
+        "woman_lawyer": {
+          "amplification_score": -0.26686217008797664,
+          "model_bias": 0.4032258064516129,
+          "baseline_bias": 0.55,
+          "sample_size": 62
+        }
+      },
+      "consistency": {},
+      "effect_sizes": {}
+    }
+  },
+  "key_findings": [
+    {
+      "type": "gender_profession",
+      "model": "distilbert",
+      "extreme_biases": [
+        {
+          "intersection": "man_doctor",
+          "positive_ratio": 0.165625,
+          "negative_ratio": 0.834375,
+          "sample_size": 320
+        },
+        {
+          "intersection": "man_engineer",
+          "positive_ratio": 0.2530487804878049,
+          "negative_ratio": 0.7439024390243902,
+          "sample_size": 328
+        },
+        {
+          "intersection": "woman_doctor",
+          "positive_ratio": 0.155,
+          "negative_ratio": 0.845,
+          "sample_size": 200
+        },
+        {
+          "intersection": "man_nurse",
+          "positive_ratio": 0.1626984126984127,
+          "negative_ratio": 0.8373015873015873,
+          "sample_size": 252
+        },
+        {
+          "intersection": "woman_nurse",
+          "positive_ratio": 0.16129032258064516,
+          "negative_ratio": 0.8387096774193549,
+          "sample_size": 124
+        },
+        {
+          "intersection": "man_teacher",
+          "positive_ratio": 0.21613832853025935,
+          "negative_ratio": 0.7838616714697406,
+          "sample_size": 347
+        },
+        {
+          "intersection": "woman_teacher",
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.7777777777777778,
+          "sample_size": 144
+        },
+        {
+          "intersection": "man_lawyer",
+          "positive_ratio": 0.23387096774193547,
+          "negative_ratio": 0.7661290322580645,
+          "sample_size": 124
+        },
+        {
+          "intersection": "woman_lawyer",
+          "positive_ratio": 0.16129032258064516,
+          "negative_ratio": 0.8387096774193549,
+          "sample_size": 62
+        }
+      ]
+    },
+    {
+      "type": "gender_profession",
+      "model": "vader_style",
+      "extreme_biases": [
+        {
+          "intersection": "man_doctor",
+          "positive_ratio": 0.053125,
+          "negative_ratio": 0.715625,
+          "sample_size": 320
+        },
+        {
+          "intersection": "woman_doctor",
+          "positive_ratio": 0.04,
+          "negative_ratio": 0.715,
+          "sample_size": 200
+        },
+        {
+          "intersection": "man_nurse",
+          "positive_ratio": 0.10714285714285714,
+          "negative_ratio": 0.7023809523809523,
+          "sample_size": 252
+        },
+        {
+          "intersection": "woman_nurse",
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.717741935483871,
+          "sample_size": 124
+        },
+        {
+          "intersection": "woman_teacher",
+          "positive_ratio": 0.13194444444444445,
+          "negative_ratio": 0.7361111111111112,
+          "sample_size": 144
+        },
+        {
+          "intersection": "woman_lawyer",
+          "positive_ratio": 0.08064516129032258,
+          "negative_ratio": 0.7096774193548387,
+          "sample_size": 62
+        }
+      ]
+    },
+    {
+      "type": "race_authority",
+      "model": "bert",
+      "extreme_biases": [
+        {
+          "intersection": "black_principal",
+          "positive_ratio": 0.037037037037037035,
+          "negative_ratio": 0.7407407407407407,
+          "sample_size": 54
+        },
+        {
+          "intersection": "african_ceo",
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "sample_size": 8
+        },
+        {
+          "intersection": "hispanic_principal",
+          "positive_ratio": 0.0625,
+          "negative_ratio": 0.75,
+          "sample_size": 16
+        },
+        {
+          "intersection": "asian_principal",
+          "positive_ratio": 0.05,
+          "negative_ratio": 0.8,
+          "sample_size": 20
+        },
+        {
+          "intersection": "indian_principal",
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.8,
+          "sample_size": 5
+        }
+      ]
+    },
+    {
+      "type": "race_authority",
+      "model": "distilbert",
+      "extreme_biases": [
+        {
+          "intersection": "american_manager",
+          "positive_ratio": 0.28688524590163933,
+          "negative_ratio": 0.7049180327868853,
+          "sample_size": 122
+        },
+        {
+          "intersection": "black_judge",
+          "positive_ratio": 0.205607476635514,
+          "negative_ratio": 0.794392523364486,
+          "sample_size": 107
+        },
+        {
+          "intersection": "white_judge",
+          "positive_ratio": 0.1836734693877551,
+          "negative_ratio": 0.8163265306122449,
+          "sample_size": 98
+        },
+        {
+          "intersection": "black_ceo",
+          "positive_ratio": 0.21621621621621623,
+          "negative_ratio": 0.7837837837837838,
+          "sample_size": 37
+        },
+        {
+          "intersection": "black_principal",
+          "positive_ratio": 0.2777777777777778,
+          "negative_ratio": 0.7222222222222222,
+          "sample_size": 54
+        },
+        {
+          "intersection": "white_principal",
+          "positive_ratio": 0.21153846153846154,
+          "negative_ratio": 0.7884615384615384,
+          "sample_size": 52
+        },
+        {
+          "intersection": "black_manager",
+          "positive_ratio": 0.07482993197278912,
+          "negative_ratio": 0.9251700680272109,
+          "sample_size": 147
+        },
+        {
+          "intersection": "white_manager",
+          "positive_ratio": 0.046242774566473986,
+          "negative_ratio": 0.953757225433526,
+          "sample_size": 173
+        },
+        {
+          "intersection": "white_director",
+          "positive_ratio": 0.22580645161290322,
+          "negative_ratio": 0.7741935483870968,
+          "sample_size": 93
+        },
+        {
+          "intersection": "mixed race_director",
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "sample_size": 6
+        },
+        {
+          "intersection": "white_ceo",
+          "positive_ratio": 0.06818181818181818,
+          "negative_ratio": 0.9318181818181818,
+          "sample_size": 44
+        },
+        {
+          "intersection": "arab_ceo",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 4
+        },
+        {
+          "intersection": "mexican_manager",
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.9,
+          "sample_size": 20
+        },
+        {
+          "intersection": "asian_manager",
+          "positive_ratio": 0.2558139534883721,
+          "negative_ratio": 0.7441860465116279,
+          "sample_size": 86
+        },
+        {
+          "intersection": "brown_manager",
+          "positive_ratio": 0.10714285714285714,
+          "negative_ratio": 0.8928571428571429,
+          "sample_size": 28
+        },
+        {
+          "intersection": "asian_ceo",
+          "positive_ratio": 0.2413793103448276,
+          "negative_ratio": 0.7586206896551724,
+          "sample_size": 29
+        },
+        {
+          "intersection": "american_ceo",
+          "positive_ratio": 0.21875,
+          "negative_ratio": 0.78125,
+          "sample_size": 64
+        },
+        {
+          "intersection": "indian_ceo",
+          "positive_ratio": 0.23076923076923078,
+          "negative_ratio": 0.7692307692307693,
+          "sample_size": 26
+        },
+        {
+          "intersection": "latino_manager",
+          "positive_ratio": 0.09090909090909091,
+          "negative_ratio": 0.9090909090909091,
+          "sample_size": 11
+        },
+        {
+          "intersection": "latino_director",
+          "positive_ratio": 0.75,
+          "negative_ratio": 0.25,
+          "sample_size": 4
+        },
+        {
+          "intersection": "hispanic_principal",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 16
+        },
+        {
+          "intersection": "indian_judge",
+          "positive_ratio": 0.19047619047619047,
+          "negative_ratio": 0.8095238095238095,
+          "sample_size": 21
+        },
+        {
+          "intersection": "indian_manager",
+          "positive_ratio": 0.125,
+          "negative_ratio": 0.875,
+          "sample_size": 48
+        },
+        {
+          "intersection": "arab_manager",
+          "positive_ratio": 0.09090909090909091,
+          "negative_ratio": 0.9090909090909091,
+          "sample_size": 11
+        },
+        {
+          "intersection": "european_judge",
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.9166666666666666,
+          "sample_size": 12
+        },
+        {
+          "intersection": "european_director",
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.8571428571428571,
+          "sample_size": 7
+        },
+        {
+          "intersection": "american_principal",
+          "positive_ratio": 0.25,
+          "negative_ratio": 0.75,
+          "sample_size": 40
+        },
+        {
+          "intersection": "korean_manager",
+          "positive_ratio": 0.13043478260869565,
+          "negative_ratio": 0.8695652173913043,
+          "sample_size": 23
+        },
+        {
+          "intersection": "korean_judge",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 4
+        },
+        {
+          "intersection": "chinese_manager",
+          "positive_ratio": 0.11904761904761904,
+          "negative_ratio": 0.8809523809523809,
+          "sample_size": 42
+        },
+        {
+          "intersection": "mexican_judge",
+          "positive_ratio": 0.14285714285714285,
+          "negative_ratio": 0.8571428571428571,
+          "sample_size": 7
+        },
+        {
+          "intersection": "brown_principal",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 7
+        },
+        {
+          "intersection": "brown_director",
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.9166666666666666,
+          "sample_size": 12
+        },
+        {
+          "intersection": "hispanic_manager",
+          "positive_ratio": 0.05,
+          "negative_ratio": 0.95,
+          "sample_size": 20
+        },
+        {
+          "intersection": "latino_ceo",
+          "positive_ratio": 0.2222222222222222,
+          "negative_ratio": 0.7777777777777778,
+          "sample_size": 9
+        },
+        {
+          "intersection": "hispanic_ceo",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 8
+        },
+        {
+          "intersection": "chinese_ceo",
+          "positive_ratio": 0.058823529411764705,
+          "negative_ratio": 0.9411764705882353,
+          "sample_size": 17
+        },
+        {
+          "intersection": "african_principal",
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "sample_size": 21
+        },
+        {
+          "intersection": "hispanic_director",
+          "positive_ratio": 0.13333333333333333,
+          "negative_ratio": 0.8666666666666667,
+          "sample_size": 15
+        },
+        {
+          "intersection": "asian_principal",
+          "positive_ratio": 0.1,
+          "negative_ratio": 0.9,
+          "sample_size": 20
+        },
+        {
+          "intersection": "latino_principal",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 11
+        },
+        {
+          "intersection": "indian_principal",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 5
+        },
+        {
+          "intersection": "arab_judge",
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.8333333333333334,
+          "sample_size": 6
+        },
+        {
+          "intersection": "arab_director",
+          "positive_ratio": 0.75,
+          "negative_ratio": 0.25,
+          "sample_size": 4
+        },
+        {
+          "intersection": "chinese_principal",
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "sample_size": 7
+        },
+        {
+          "intersection": "japanese_principal",
+          "positive_ratio": 0.8,
+          "negative_ratio": 0.2,
+          "sample_size": 5
+        },
+        {
+          "intersection": "mixed race_manager",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 6
+        },
+        {
+          "intersection": "mixed race_judge",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 5
+        },
+        {
+          "intersection": "japanese_judge",
+          "positive_ratio": 0.16666666666666666,
+          "negative_ratio": 0.8333333333333334,
+          "sample_size": 6
+        },
+        {
+          "intersection": "european_ceo",
+          "positive_ratio": 0.2857142857142857,
+          "negative_ratio": 0.7142857142857143,
+          "sample_size": 7
+        },
+        {
+          "intersection": "korean_principal",
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "sample_size": 3
+        },
+        {
+          "intersection": "mexican_ceo",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 3
+        }
+      ]
+    },
+    {
+      "type": "race_authority",
+      "model": "vader_style",
+      "extreme_biases": [
+        {
+          "intersection": "latino_manager",
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.9090909090909091,
+          "sample_size": 11
+        },
+        {
+          "intersection": "indian_manager",
+          "positive_ratio": 0.08333333333333333,
+          "negative_ratio": 0.7291666666666666,
+          "sample_size": 48
+        },
+        {
+          "intersection": "european_judge",
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.75,
+          "sample_size": 12
+        },
+        {
+          "intersection": "mexican_judge",
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.7142857142857143,
+          "sample_size": 7
+        },
+        {
+          "intersection": "hispanic_director",
+          "positive_ratio": 0.0,
+          "negative_ratio": 0.8666666666666667,
+          "sample_size": 15
+        },
+        {
+          "intersection": "indian_principal",
+          "positive_ratio": 0.2,
+          "negative_ratio": 0.8,
+          "sample_size": 5
+        },
+        {
+          "intersection": "mixed race_judge",
+          "positive_ratio": 0.0,
+          "negative_ratio": 1.0,
+          "sample_size": 5
+        }
+      ]
+    },
+    {
+      "type": "race_authority",
+      "model": "textblob",
+      "extreme_biases": [
+        {
+          "intersection": "korean_director",
+          "positive_ratio": 0.8333333333333334,
+          "negative_ratio": 0.0,
+          "sample_size": 24
+        },
+        {
+          "intersection": "arab_manager",
+          "positive_ratio": 0.8181818181818182,
+          "negative_ratio": 0.0,
+          "sample_size": 11
+        },
+        {
+          "intersection": "japanese_director",
+          "positive_ratio": 0.7777777777777778,
+          "negative_ratio": 0.0,
+          "sample_size": 9
+        },
+        {
+          "intersection": "latino_ceo",
+          "positive_ratio": 0.7777777777777778,
+          "negative_ratio": 0.0,
+          "sample_size": 9
+        },
+        {
+          "intersection": "hispanic_ceo",
+          "positive_ratio": 0.875,
+          "negative_ratio": 0.0,
+          "sample_size": 8
+        },
+        {
+          "intersection": "japanese_principal",
+          "positive_ratio": 0.8,
+          "negative_ratio": 0.0,
+          "sample_size": 5
+        },
+        {
+          "intersection": "korean_principal",
+          "positive_ratio": 1.0,
+          "negative_ratio": 0.0,
+          "sample_size": 3
+        }
+      ]
+    }
+  ],
+  "recommendations": [
+    "Compare bias patterns across different models to identify consistent vs. model-specific biases",
+    "Focus on intersections with large sample sizes for reliable statistics",
+    "Investigate temporal changes in bias patterns across the four time periods",
+    "Consider additional bias mitigation techniques for models showing extreme bias ratios",
+    "Validate findings with human evaluation on high-bias samples"
+  ]
+}
