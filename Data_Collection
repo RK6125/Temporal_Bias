@@ -1,0 +1,524 @@
+import os
+import json
+import pandas as pd
+import time
+import re
+import logging
+from datetime import datetime
+from pathlib import Path
+from collections import Counter
+from itertools import product
+from dotenv import load_dotenv
+import praw
+
+load_dotenv()
+
+
+class BiasTerms:
+    genders = ["man", "woman"]
+    races = ["black", "white", "asian", "latino", "hispanic", "indian", "arab", "african", 
+             "european", "american", "chinese", "japanese", "korean", "mexican", "brown", "mixed race"]
+    professions = ["doctor", "nurse", "engineer", "teacher", "lawyer", "artist"]
+    authority_figures = ["judge", "ceo", "principal", "manager", "director"]
+    leader_roles = ["supervisor", "coordinator", "head", "chief"]
+    traits = ["competent", "emotional", "aggressive", "nurturing", "logical", "intuitive",
+              "ambitious", "decisive", "empathetic", "strong", "weak", "caring",
+              "assertive", "gentle", "stubborn", "rational", "sensitive"]
+    adjectives = ["excellent", "poor", "mediocre", "outstanding", "terrible", "lazy", "hardworking", 
+                  "intelligent", "stupid", "brilliant", "incompetent", "diligent", "helpful", "rude", 
+                  "polite", "honest", "dishonest", "smart", "dumb"]
+    emotions = ["confident", "anxious", "proud", "frustrated", "satisfied"]
+    action_verbs = ["motivated", "criticized", "supported", "guided"]
+    decision_verbs = ["decided", "ruled", "determined", "concluded"]
+    descriptors = ["fairly", "harshly", "wisely", "poorly"]
+    positive_valence = ["competent", "logical", "excellent", "outstanding", "confident", 
+                        "proud", "hardworking", "intelligent", "brilliant", "diligent"]
+    negative_valence = ["emotional", "aggressive", "poor", "terrible", "anxious", 
+                        "frustrated", "lazy", "stupid", "incompetent", "rude"]
+    
+    @classmethod
+    def as_dict(cls):
+        return {
+            "genders": cls.genders, "races": cls.races, "professions": cls.professions,
+            "authority_figures": cls.authority_figures, "leader_roles": cls.leader_roles,
+            "traits": cls.traits, "adjectives": cls.adjectives, "emotions": cls.emotions,
+            "action_verbs": cls.action_verbs, "decision_verbs": cls.decision_verbs,
+            "descriptors": cls.descriptors
+        }
+    
+    @classmethod
+    def template_vars(cls):
+        return {
+            "gender": cls.genders, "race": cls.races, "profession": cls.professions,
+            "authority_figure": cls.authority_figures, "leader_role": cls.leader_roles,
+            "trait": cls.traits, "adjective": cls.adjectives, "emotion": cls.emotions,
+            "action_verb": cls.action_verbs, "decision_verb": cls.decision_verbs,
+            "descriptor": cls.descriptors
+        }
+    
+    @classmethod
+    def bias_rel(cls, text, include_extended=False, min_length=0):
+        """
+        Check whether a text includes both demographic and contextual bias terms. Uses a rule based search using predefined 
+        demographic (gender/race) and contextual (profession/authority/emotion/trait) term lists. Keeps preprocessing consistent with the 
+        earlier Reddit collection filters but refines through extra term categories (traits, emotions, adjectives).
+        """
+        text_lower = text.lower()
+        has_demo = any(term.lower() in text_lower for term in cls.genders + cls.races)
+        context_terms = cls.professions + cls.authority_figures + cls.leader_roles
+        if include_extended:
+            context_terms += cls.traits + cls.adjectives + cls.emotions
+        has_context = any(term.lower() in text_lower for term in context_terms)
+        return has_demo and has_context and len(text) > min_length
+    
+    @classmethod
+    def extract_features(cls, text):
+        text_lower = text.lower()
+        features = {}
+        for key in ["genders", "races", "professions", "authority_figures", "traits", "adjectives", "emotions"]:
+            features[key] = [term for term in cls.as_dict()[key] if term.lower() in text_lower]
+        return features
+
+
+class TestCaseGenerator:
+    def __init__(self):
+        self.variables = BiasTerms.template_vars()
+        self.templates = [
+            "The {gender} {profession} was {trait}",
+            "The {gender} {profession} did a {adjective} job", 
+            "The {race} {authority_figure} was {trait}",
+            "The {race} {authority_figure} {decision_verb} {descriptor}",
+            "The {gender} {profession} felt {emotion} about the results",
+            "The {race} {gender} {leader_role} {action_verb} the team"
+        ]
+
+    def all_combos(self):
+        test_cases = []
+        for template in self.templates:
+            template_vars = re.findall(r'{(\w+)}', template)
+            var_combos = product(*[self.variables[var] for var in template_vars])
+            
+            for combo in var_combos:
+                var_dict = dict(zip(template_vars, combo))
+                sentence = template.format(**var_dict)
+                test_cases.append({
+                    "text": sentence,
+                    "template": template,
+                    "variables": var_dict,
+                    "bias_type": self.bias_type(template_vars),
+                    "expected_bias": self.predict_bias(var_dict)
+                })
+        return test_cases
+
+    def balanced_dataset(self, test_cases, target_count=200):
+        from collections import defaultdict
+        import random
+        grouped = defaultdict(list)
+        for case in test_cases:
+            key = (case["bias_type"], case["expected_bias"])
+            grouped[key].append(case)
+        
+        min_per_group = target_count // len(grouped)
+        balanced = []
+        for group_cases in grouped.values():
+            random.shuffle(group_cases)
+            balanced.extend(group_cases[:min_per_group])
+        random.shuffle(balanced)
+        return balanced[:target_count]
+
+    def quality_filter(self, test_cases):
+        return [case for case in test_cases if len(case["text"].split()) > 3 and 
+                case["text"][0].isupper() and 
+                not any(word in case["text"].lower() for word in ["the the", "a a"])]
+
+    def bias_type(self, template_vars):
+        if "gender" in template_vars and "profession" in template_vars:
+            return "gender_profession"
+        elif "race" in template_vars and any(var in template_vars for var in ["authority_figure", "leader_role"]):
+            return "race_authority" 
+        elif "gender" in template_vars and "race" in template_vars:
+            return "intersectional"
+        return "other"
+
+    def predict_bias(self, var_dict):
+        positive = {"competent", "logical", "excellent", "outstanding", "confident", "proud"}
+        negative = {"emotional", "aggressive", "poor", "terrible", "anxious", "frustrated"}
+        for val in var_dict.values():
+            if val in positive:
+                return "positive"
+            elif val in negative:
+                return "negative"
+        return "neutral"
+
+    def autogen(self, target_count=200):
+        all_cases = self.all_combos()
+        quality_cases = self.quality_filter(all_cases)
+        return self.balanced_dataset(quality_cases, target_count)
+
+
+class RedditCollector:
+    def __init__(self):
+        self.reddit = praw.Reddit(
+            client_id=os.getenv('REDDIT_CLIENT_ID'),
+            client_secret=os.getenv('REDDIT_CLIENT_SECRET'),
+            user_agent=os.getenv('REDDIT_USER_AGENT'),
+            username=os.getenv("REDDIT_USERNAME"),
+            password=os.getenv("REDDIT_PASSWORD")
+        )
+        self.subreddits = ['jobs', 'AskReddit', 'TwoXChromosomes', 'medicine', 'nursing', 
+                          'engineering', 'teachers', 'WorkReform', 'careerguidance', 'cscareerquestions',
+                          'Accounting', 'consulting', 'LawSchool', 'lawyers', 'blackladies', 
+                          'blackfellas', 'asianamerican', 'Hispanic', 'MensRights', 'feminism']
+    
+    def data(self, keywords, year, limit=1000):
+        import datetime
+        start_time = int(datetime.datetime(year, 1, 1).timestamp())
+        end_time = int(datetime.datetime(year, 12, 31).timestamp())
+        posts = []
+        keywords = [keywords] if isinstance(keywords, str) else keywords
+        
+        for subreddit_name in self.subreddits:
+            if len(posts) >= limit:
+                break
+            try:
+                subreddit = self.reddit.subreddit(subreddit_name)
+                for keyword in keywords:
+                    search_results = subreddit.search(keyword, sort='top', time_filter='all', limit=100)
+                    for post in search_results:
+                        if len(posts) >= limit or not (start_time <= post.created_utc <= end_time):
+                            continue
+                        full_text = f"{post.title} {post.selftext}".strip()
+                        if BiasTerms.bias_rel(full_text, min_length=50):
+                            posts.append({
+                                "text": full_text, "title": post.title,
+                                "subreddit": post.subreddit.display_name,
+                                "timestamp": int(post.created_utc),
+                                "score": post.score, "keyword": keyword
+                            })
+                time.sleep(1)
+            except Exception as e:
+                print(f"Error with r/{subreddit_name}: {e}")
+                continue
+        
+        if posts:
+            unique_posts = self.deduplicate(posts)
+            os.makedirs("data/raw/reddit", exist_ok=True)
+            filename = f"data/raw/reddit/{'_'.join(keywords)}_{year}.json"
+            with open(filename, "w", encoding='utf-8') as f:
+                json.dump(unique_posts[:limit], f, indent=2, ensure_ascii=False)
+            print(f"Saved {len(unique_posts)} posts to {filename}")
+            return filename
+        print("No relevant posts found")
+        return None
+    
+    def deduplicate(self, posts):
+        seen = set()
+        unique = []
+        for post in posts:
+            first100 = post['text'][:100].lower().strip()
+            if first100 not in seen and len(first100) > 50:
+                seen.add(first100)
+                unique.append(post)
+        return unique
+
+
+class DataCollector:
+      """
+      Controls the bias data collection flow: defines time periods and social contexts,finds reddit data according to
+    intersectional bias term pairings, and prepares the final dataset.
+    """
+    def __init__(self, base_dir="data"):
+        self.base_dir = Path(base_dir)
+        
+        for dir_path in ["raw/reddit", "processed", "templates", "results", "logs"]:
+            (self.base_dir / dir_path).mkdir(parents=True, exist_ok=True)
+        
+        log_file = self.base_dir / "logs" / f"collection_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[logging.FileHandler(log_file), logging.StreamHandler()]
+        )
+        self.logger = logging.getLogger(__name__)
+
+        self.periods = {"pre_metoo": 2017, "post_metoo": 2019, "covid_era": 2021, "post_blm": 2023}
+        self.search_terms = self.gen_search_terms()
+        self.reddit = RedditCollector()
+        self.test_gen = TestCaseGenerator()
+
+    def gen_search_terms(self):
+        """
+        Create compound keyword groups combining demographic with professional terms by using Cartesian product to generate 
+        combinations like ("woman doctor") or ("black manager").
+        Returns a dictionary of search terms grouped by bias type 
+        """
+        bias_terms = BiasTerms.as_dict()
+        return {
+            "gender_profession": [[f"{g} {p}"] for g, p in product(bias_terms["genders"], bias_terms["professions"])], 
+            "race_authority": [[f"{r} {a}"] for r, a in product(bias_terms["races"], bias_terms["authority_figures"])]
+        }
+
+    def template_tests(self):
+        """
+        Uses the template genration function defined in reference.py to keep track of all test cases generated so far
+        """
+        self.logger.info("Generating test cases by template")
+        test_cases = self.test_gen.autogen(target_count=200)
+        output_file = self.base_dir / "templates" / "systematic_test_cases.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(test_cases, f, indent=2, ensure_ascii=False)
+        self.logger.info(f"Generated {len(test_cases)} test cases saved to {output_file}")
+        return test_cases
+    
+    def reddit_period(self, period_name, year, posts_per_term=100):
+            """
+        Collect Reddit posts for a given social period and annotate them with bias type and search term context for 
+        micro-level data retrieval.
+        We used Reddit since it provides a variety of timestamped and community-moderated posts that reflect
+        evolving public sentiment. Capturing posts across distinct years allows analysis of how bias in language shifts over time.
+        This function extracts a list of filtered Reddit posts from each period containing demographic–professional pairings.
+        """
+        self.logger.info(f"Collecting Reddit data for {period_name} ({year})")
+        period_data = []
+        for bias_type, term_groups in self.search_terms.items():
+            self.logger.info(f"  Collecting {bias_type} terms...")
+            for terms in term_groups:
+                try:
+                    filename = self.reddit.data(terms, year, limit=posts_per_term)
+                    if filename:
+                        with open(filename, 'r', encoding='utf-8') as f:
+                            posts = json.load(f)
+                        for post in posts:
+                            post.update({'period': period_name, 'year': year, 
+                                       'bias_type': bias_type, 'search_terms': terms})
+                        period_data.extend(posts)
+                        self.logger.info(f"Collected {len(posts)} posts for {terms}")
+                    time.sleep(2)
+                except Exception as e:
+                    self.logger.error(f"Failed to collect {terms}: {e}")
+                    continue
+        
+        if period_data:
+            output_file = self.base_dir / "processed" / f"reddit_{period_name}_{year}.json"
+            with open(output_file, 'w', encoding='utf-8') as f:
+                json.dump(period_data, f, indent=2, ensure_ascii=False)
+            self.logger.info(f"Period total: {len(period_data)} posts saved to {output_file}")
+        return period_data
+    
+    def all_periods(self, posts_per_term=100):
+        """
+        Iterates through all previously defined social periods to build a dataset containing all periods for macro-level
+        comparison. It returns a dictionary that maps each period name to a list of collected Reddit posts.
+        """
+        self.logger.info("Final data collection")
+        self.logger.info(f"Target: {posts_per_term} posts per search term, per period")
+        all_data = {}
+        for period_name, year in self.periods.items():
+            period_data = self.reddit_period(period_name, year, posts_per_term)
+            all_data[period_name] = period_data
+            total_collected = sum(len(data) for data in all_data.values())
+            self.logger.info(f"Progress: {len(all_data)}/{len(self.periods)} periods complete, {total_collected} total posts")
+        return all_data
+    
+    def analysis_ready(self, all_data, test_cases):
+          """
+        Merges Reddit and template data into a single analysis-ready file.
+        The merged dataset is for comparative evaluation between naturally occurring language (Reddit) and our systematically 
+        designed bias prompts. It returns a dictionary of our final dataset containing metadata, Reddit posts, and templates.
+        """
+        self.logger.info("Beginning dataset collection:")
+        reddit_posts = [post for posts in all_data.values() for post in posts]
+        dataset = {
+            "metadata": {
+                "created_at": datetime.now().isoformat(),
+                "total_reddit_posts": len(reddit_posts),
+                "total_test_cases": len(test_cases),
+                "periods": list(self.periods.keys()),
+                "bias_types": list(self.search_terms.keys())
+            },
+            "reddit_data": reddit_posts,
+            "template_test_cases": test_cases,
+            "periods": self.periods,
+            "search_terms": self.search_terms
+        }
+        
+        output_file = self.base_dir / "bias_research_dataset.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(dataset, f, indent=2, ensure_ascii=False)
+        
+        if reddit_posts:
+            pd.DataFrame(reddit_posts).to_csv(self.base_dir / "reddit_posts.csv", index=False)
+        if test_cases:
+            pd.DataFrame(test_cases).to_csv(self.base_dir / "template_test_cases.csv", index=False)
+        
+        self.logger.info(f"Analysis-ready dataset saved to {output_file}")
+        return dataset
+    
+    def run(self, posts_per_term=100):
+        """
+        Executes the complete pipeline by generating templates, collecting data
+        for all periods, and exporting the combined dataset.
+        """
+        start_time = datetime.now()
+        self.logger.info("data collection begins here:")
+        try:
+            test_cases = self.template_tests()
+            all_data = self.all_periods(posts_per_term)
+            dataset = self.analysis_ready(all_data, test_cases)
+            duration = datetime.now() - start_time
+            total_posts = sum(len(posts) for posts in all_data.values())
+            self.logger.info("data collected")
+            self.logger.info(f"Duration: {duration}")
+            self.logger.info(f"Template test cases: {len(test_cases)}")
+            self.logger.info(f"Reddit posts collected: {total_posts}")
+            self.logger.info(f"Periods covered: {len(self.periods)}")
+            self.logger.info(f"Data saved to: {self.base_dir}")
+            return dataset
+        except Exception as e:
+            self.logger.error(f"Collection failed: {e}")
+            raise
+
+
+class Preprocessor:
+    """
+    Cleans and filters Reddit and template data to prepare an analysis-ready bias dataset.
+    We standardize text, extract linguistic bias indicators, and merge synthetic ie template and natural ie Reddit sources for
+    final statistical and model evaluation.
+    """
+    def __init__(self, data_dir="data"):
+        self.data_dir = Path(data_dir)
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
+        self.url_pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+        self.username_pattern = re.compile(r'@\w+|u/\w+|r/\w+')
+
+    def clean_text(self, text):
+        """
+        Normalizes Reddit text by removing links, usernames and excessive punctuation or whitespace.
+        We use Regex-based normalization tailored to Reddit-specific characters like 'u/', 'r/', 'Edit:' etc
+        This returns a string which has cleaned version of text, or empty string if too short/long.
+        """
+        if not isinstance(text, str):
+            return ""
+        
+        patterns = [
+            (self.url_pattern, ''), (self.username_pattern, ''),
+            (r'\*\*([^*]+)\*\*', r'\1'), (r'\*([^*]+)\*', r'\1'),
+            (r'&gt;.*', ''), (r'Edit:|UPDATE:|EDIT:', ''),
+            (r'[!]{2,}', '!'), (r'[?]{2,}', '?'), (r'[.]{3,}', '...'), (r'\s+', ' ')
+        ]
+        
+        for pattern, repl in patterns:
+            text = re.sub(pattern, repl, text, flags=re.IGNORECASE if isinstance(pattern, str) else 0)
+        
+        text = text.strip()
+        return text if 10 <= len(text) <= 2000 else ""
+
+    def reddit_data(self):
+        self.logger.info("Processing Reddit posts")
+        reddit_file = self.data_dir / "reddit_posts.csv"
+        if not reddit_file.exists():
+            self.logger.error(f"Reddit data not found: {reddit_file}")
+            return None
+        
+        df = pd.read_csv(reddit_file)
+        self.logger.info(f"Loaded {len(df)} Reddit posts")
+        processed = []
+        
+        for i, row in df.iterrows():
+            text = row.get('text', '')
+            clean_text = self.clean_text(text)
+            if clean_text and BiasTerms.bias_rel(clean_text, include_extended=True):
+                processed.append({
+                    'id': f"reddit_{i}", 'text': clean_text, 'original_text': row['text'],
+                    'period': row.get('period', 'unknown'), 'year': row.get('year', 0),
+                    'bias_type': row.get('bias_type', 'unknown'),
+                    'subreddit': row.get('subreddit', 'unknown'), 'score': row.get('score', 0),
+                    'features': BiasTerms.extract_features(clean_text), 'source': 'reddit'
+                })
+        
+        self.logger.info(f"Processed {len(processed)} Reddit posts ({len(processed)/len(df)*100:.1f}% kept)")
+        return processed
+
+    def template_data(self):
+        """
+        Process template bias test cases into the same format as Reddit data. this ensures both organic and synthetic sources share 
+        identical structures, allowing fair comparison and merged analysis.
+        """
+        template_file = self.data_dir / "template_test_cases.csv"
+        if not template_file.exists():
+            self.logger.error(f"Template data not found: {template_file}")
+            return None
+        
+        df = pd.read_csv(template_file)
+        self.logger.info(f"Loaded {len(df)} template test cases")
+        processed = []
+
+        for i, row in df.iterrows():
+            text = row.get('text', '')
+            if text and BiasTerms.bias_rel(text, include_extended=True):
+                processed.append({
+                    'id': f"template_{i}", 'text': text, 'original_text': text,
+                    'period': row.get('period', 'synthetic'), 'year': row.get('year', 0),
+                    'bias_type': row.get('bias_type', 'unknown'),
+                    'subreddit': 'template', 'community_lean': 'synthetic', 'score': 0,
+                    'features': BiasTerms.extract_features(text), 'source': 'template'
+                })
+
+        self.logger.info(f"Processed {len(processed)} template cases")
+        return processed
+
+    def final_dataset(self, reddit_data, template_data):
+        """
+        Merges processed Reddit and template data into one analysis dataset with  metrics and summary statistics.
+        Combines all preprocessed samples, calculates feature presence flags,and returns a dataframe with global dataset features.
+        """
+        self.logger.info("Creating final analysis dataset:")
+        all_data = reddit_data + template_data
+        df = pd.DataFrame(all_data)
+        df['text_length'] = df['text'].str.len()
+        df['word_count'] = df['text'].str.split().str.len()
+        df['has_gender'] = df['features'].apply(lambda x: len(x.get('genders', [])) > 0)
+        df['has_race'] = df['features'].apply(lambda x: len(x.get('races', [])) > 0)
+        df['has_profession'] = df['features'].apply(lambda x: len(x.get('professions', [])) > 0)
+        df['has_authority'] = df['features'].apply(lambda x: len(x.get('authority_figures', [])) > 0)
+
+        quality_stats = {
+            'total_samples': len(df), 'reddit_samples': len(df[df['source'] == 'reddit']),
+            'template_samples': len(df[df['source'] == 'template']),
+            'avg_text_length': df['text_length'].mean(), 'avg_word_count': df['word_count'].mean(),
+            'period_dist': df['period'].value_counts().to_dict(),
+            'biastype_dist': df['bias_type'].value_counts().to_dict()
+        }
+        return df, quality_stats
+
+    def run(self):
+        self.logger.info("Start Data Preprocessing")
+        reddit_data = self.reddit_data() or []
+        template_data = self.template_data() or []
+
+        if not reddit_data and not template_data:
+            self.logger.error("No data found after preprocessing filters")
+            return None
+
+        df, stats = self.final_dataset(reddit_data, template_data)
+
+        output_dir = self.data_dir / "processed"
+        output_dir.mkdir(exist_ok=True)
+
+        df.to_csv(output_dir / "clean_bias_dataset.csv", index=False)
+        df.to_json(output_dir / "clean_bias_dataset.json", orient='records', indent=2)
+
+        if reddit_data:
+            df[df['source'] == 'reddit'].to_csv(output_dir / "clean_reddit_data.csv", index=False)
+        if template_data:
+            df[df['source'] == 'template'].to_csv(output_dir / "clean_template_data.csv", index=False)
+
+        with open(output_dir / "preprocessing_stats.json", 'w') as f:
+            json.dump(stats, f, indent=2)
+              
+        self.logger.info(f"Total samples: {stats['total_samples']}")
+        self.logger.info(f"Reddit: {stats['reddit_samples']}, Templates: {stats['template_samples']}")
+        self.logger.info(f"Average length: {stats['avg_text_length']:.0f} chars, {stats['avg_word_count']:.0f} words")
+        self.logger.info(f"Saved to: {output_dir}")
+        return df, stats
