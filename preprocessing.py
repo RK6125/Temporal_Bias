@@ -1,4 +1,3 @@
-
 import json
 import pandas as pd
 import re
@@ -9,9 +8,14 @@ import numpy as np
 from bias_list import BiasTerms
 
 class BiasDataPreprocessor:
+      """
+    Cleans and filters Reddit and template data to prepare an analysis-ready bias dataset.
+    We standardize text, extract linguistic bias indicators, and merge synthetic ie template and natural ie Reddit sources for
+    final statistical and model evaluation.
+    """
     def __init__(self, data_dir="data"):
         self.data_dir = Path(data_dir)
-        self.setup_logging()
+        self.loggings()
  
         self.url_pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
         self.username_pattern = re.compile(r'@\w+|u/\w+|r/\w+')
@@ -37,11 +41,16 @@ class BiasDataPreprocessor:
 
         self.bias_terms = BiasTerms.get_dict()
     
-    def setup_logging(self):
+    def loggings(self):
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
     
     def clean_text(self, text):
+        """
+    Normalizes Reddit text by removing links, usernames and excessive punctuation or whitespace.
+    We use Regex-based normalization tailored to Reddit-specific characters like 'u/', 'r/', 'Edit:' etc
+    This returns a string which has cleaned version of text, or empty string if too short/long.
+    """
         if not isinstance(text, str):
             return ""
         text = text.strip()
@@ -61,8 +70,14 @@ class BiasDataPreprocessor:
         return text   
     
     
-    def is_bias_relevant(self, text):
-    
+    def bias_relevance(self, text):
+    """
+    Check whether a text includes both demographic and contextual bias terms. Uses a rule based search using predefined 
+    demographic (gender/race) and contextual (profession/authority/emotion/trait) term lists. Keeps preprocessing consistent with the 
+    earlier Reddit collection filters but refines through extra term categories (traits, emotions, adjectives).
+
+
+    """
         text_lower = text.lower()
         has_demo = any(term.lower() in text_lower for term_list in 
                       [self.bias_terms["genders"], self.bias_terms["races"]] 
@@ -78,7 +93,7 @@ class BiasDataPreprocessor:
           return True
         return False
     
-    def extract_bias_features(self, text):
+    def extract_bias(self, text):
         text_lower = text.lower()
         features = {}        
         features['genders'] = [term for term in self.bias_terms["genders"] if term.lower() in text_lower]
@@ -91,7 +106,8 @@ class BiasDataPreprocessor:
         features['adjectives'] = [term for term in self.bias_terms["adjectives"] if term.lower() in text_lower]
         features['emotions'] = [term for term in self.bias_terms["emotions"] if term.lower() in text_lower]
         return features  
-    def process_reddit_data(self):
+        
+    def process_redditdata(self):
         self.logger.info("Processing Reddit posts")        
         reddit_file = self.data_dir / "reddit_posts.csv"
         if not reddit_file.exists():
@@ -100,14 +116,14 @@ class BiasDataPreprocessor:
         df = pd.read_csv(reddit_file)
         self.logger.info(f"Loaded {len(df)} Reddit posts")
         processed = []        
-        for idx, row in df.iterrows():
+        for i, row in df.iterrows():
             text = row.get('text', '') if isinstance(row, dict) else row['text'] if 'text' in row else ''
             clean_text = self.clean_text(text)
-            if clean_text and self.is_bias_relevant(clean_text):
-                features = self.extract_bias_features(clean_text)
+            if clean_text and self.bias_relevance(clean_text):
+                features = self.extract_bias(clean_text)
                 
                 processed.append({
-                    'id': f"reddit_{idx}",
+                    'id': f"reddit_{i}",
                     'text': clean_text,
                     'original_text': row['text'],
                     'period': row.get('period', 'unknown'),
@@ -121,9 +137,14 @@ class BiasDataPreprocessor:
         total = len(df) or 1
         self.logger.info(f"Processed {len(processed)} Reddit posts ({len(processed)/total*100:.1f}% kept)")
         return processed    
-    def process_template_data(self):
-        self.logger.info("Processing template test cases...")  # CORRECT MESSAGE    
-        template_file = self.data_dir / "template_test_cases.csv"  # CORRECT FILE
+        
+    def process_templatedata(self):
+        """
+    Process template bias test cases into the same format as Reddit data. this ensures both organic and synthetic sources share 
+    identical structures, allowing fair comparison and merged analysis.
+        """
+        self.logger.info("Processing template test cases")      
+        template_file = self.data_dir / "template_test_cases.csv" 
         if not template_file.exists():
             self.logger.error(f"Template data not found: {template_file}")
             return None    
@@ -131,21 +152,21 @@ class BiasDataPreprocessor:
         self.logger.info(f"Loaded {len(df)} template test cases")    
         processed = []
     
-        for idx, row in df.iterrows():
+        for i, row in df.iterrows():
             text = row.get('text', '')
         
-            if text and self.is_bias_relevant(text):
-                features = self.extract_bias_features(text)
+            if text and self.bias_relevance(text):
+                features = self.extract_bias(text)
             
                 processed.append({
-                    'id': f"template_{idx}",
+                    'id': f"template_{i}",
                     'text': text,
                     'original_text': text,
-                    'period': row.get('period', 'synthetic'),  # Templates might not have periods
+                    'period': row.get('period', 'synthetic'),  
                     'year': row.get('year', 0),
                     'bias_type': row.get('bias_type', 'unknown'),
-                    'subreddit': 'template',  # No subreddit for templates
-                    'community_lean': 'synthetic',  # Mark as synthetic
+                    'subreddit': 'template',  
+                    'community_lean': 'synthetic',  
                     'score': 0,
                     'features': features,
                     'source': 'template'
@@ -154,8 +175,11 @@ class BiasDataPreprocessor:
         self.logger.info(f"Processed {len(processed)} template cases")
         return processed
            
-    def create_analysis_dataset(self, reddit_data, template_data):
-
+    def analysis_dataset(self, reddit_data, template_data):
+         """
+    Merges processed Reddit and template data into one analysis dataset with  metrics and summary statistics.
+    Combines all preprocessed samples, calculates feature presence flags,and returns a dataframe with global dataset features.
+    """
         self.logger.info("Creating final analysis dataset:")
         all_data = reddit_data + template_data
         df = pd.DataFrame(all_data)
@@ -178,8 +202,12 @@ class BiasDataPreprocessor:
         
         return df, quality_stats
     
-    def diagnose_coverage(self, reddit_data):
-   
+    def find_coverage(self, reddit_data):
+   """
+    Diagnostic function to inspect how well the collected Reddit data
+    covers bias intersections (e.g., gender × profession). Was included after first run provided unbalancxed samples
+    across categories
+    """
         if not reddit_data:
             print("No data to diagnose")
             return
@@ -189,15 +217,12 @@ class BiasDataPreprocessor:
             if col not in df_temp.columns:
                 df_temp[col] = False
     
-  
         print(f"Raw posts collected: {len(reddit_data)}")
         print(f"\nFeature distribution:")
         print(f"  Has gender: {df_temp['has_gender'].sum()}")
         print(f"  Has race: {df_temp['has_race'].sum()}")
         print(f"  Has profession: {df_temp['has_profession'].sum()}")
         print(f"  Has authority: {df_temp['has_authority'].sum()}")
-    
-    
         intersections = set()
         for _, row in df_temp.iterrows():
             features = ast.literal_eval(row['features']) if isinstance(row['features'], str) else row['features']
@@ -206,21 +231,24 @@ class BiasDataPreprocessor:
             for d in demos:
                 for c in contexts:
                     intersections.add(f"{d}_{c}")
-    
         print(f"\nIntersection coverage:")
         print(f"  Total unique intersections: {len(intersections)}")
         print(f"  Sample intersections: {list(intersections)[:10]}")
         print("=" * 40)
 
-
     def run_preprocessing(self, diagnose=False):
 
+    """
+    Executes the full preprocessing flow: cleans, filters, annotates, and merges data.
+    """
+
+
         self.logger.info("Beginning Data Preprocessing")
-        reddit_data = self.process_reddit_data()
-        template_data = self.process_template_data()
+        reddit_data = self.process_redditdata()
+        template_data = self.process_templatedata()
 
         if diagnose and reddit_data:
-            self.diagnose_coverage(reddit_data)
+            self.find_coverage(reddit_data)
     
         if not reddit_data and not template_data:
             self.logger.error("No data found after preprocessing filters")
@@ -229,7 +257,7 @@ class BiasDataPreprocessor:
         reddit_data = reddit_data or []
         template_data = template_data or []
 
-        df, stats = self.create_analysis_dataset(reddit_data, template_data)
+        df, stats = self.analysis_dataset(reddit_data, template_data)
     
         output_dir = self.data_dir / "processed"
         output_dir.mkdir(exist_ok=True)
