@@ -1,4 +1,3 @@
-
 import datetime
 import json
 import os
@@ -9,7 +8,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
-class RedditBiasCollector:
+class RedditCollector:
     def __init__(self):
         self.reddit = praw.Reddit(
             client_id=os.getenv('REDDIT_CLIENT_ID'),
@@ -23,11 +22,12 @@ class RedditBiasCollector:
 
         self.bias_terms = BiasTerms.get_dict()
         
+        # List of 20 subreddits likely to contain posts about professional or demographic bias. Can be edited later
         self.subreddits = ['jobs', 'AskReddit', 'TwoXChromosomes', 'medicine', 'nursing', 
                           'engineering', 'teachers', 'WorkReform', 'careerguidance',  'cscareerquestions','Accounting',         
                             'consulting', 'LawSchool', 'lawyers', 'blackladies', 'blackfellas', 'asianamerican',  'Hispanic', 'MensRights', 'feminism']
     
-    def _is_bias_relevant(self, text):
+    def bias_relevance(self, text):
         
         text_lower = text.lower()
         
@@ -96,21 +96,21 @@ class RedditBiasCollector:
         print(" No relevant posts found")
         return None
     
-    def _deduplicate(self, posts):
-    
+    def deduplicate(self, posts):
+    # Removes seemingly duplicate posts based on the first 100 characters of text.
         seen = set()
         unique = []
         
         for post in posts:
-            signature = post['text'][:100].lower().strip()
-            if signature not in seen and len(signature) > 50:
-                seen.add(signature)
+            first100 = post['text'][:100].lower().strip()
+            if first100 not in seen and len(first100) > 50:
+                seen.add(first100)
                 unique.append(post)
         
         return unique
 
-def collect_reddit_data(keyword, year, limit=1000):
-    collector = RedditBiasCollector()
+def collect_final_data(keyword, year, limit=1000):
+    collector = RedditCollector()
     return collector.collect_data(keyword, year, limit)
 
 
