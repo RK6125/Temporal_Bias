@@ -14,8 +14,8 @@ from reference import TestCaseGenerator
 class BiasedDataCollector:
     def __init__(self, base_dir="data"):
         self.base_dir = Path(base_dir)
-        self.setup_directories()
-        self.setup_logging()
+        self.directories()
+        self.loggings()
 
         self.periods = {
             "pre_metoo": 2017,
@@ -23,12 +23,12 @@ class BiasedDataCollector:
             "covid_era": 2021,
             "post_blm": 2023
         }
-        self.search_terms = self.generate_search_terms()
+        self.search_terms = self.gen_search_terms()
 
         self.reddit_collector = RedditCollector()
         self.test_generator = TestCaseGenerator()
 
-    def search_terms(self):
+    def gen_search_terms(self):
         bias_terms = BiasTerms.get_dict()
     
         return {
@@ -55,7 +55,7 @@ class BiasedDataCollector:
             (self.base_dir / dir_path).mkdir(parents=True, exist_ok=True)
 
     
-    def logging(self):
+    def loggings(self):
         log_file = self.base_dir / "logs" / f"collection_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         
         logging.basicConfig(
