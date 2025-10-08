@@ -7,11 +7,11 @@ from pathlib import Path
 import logging
 from bias_list import BiasTerms
 from itertools import product
-from collect_reddit import RedditBiasCollector
+from collect_reddit import RedditCollector
 from reference import TestCaseGenerator
 
 
-class BiasResearchDataCollector:
+class BiasedDataCollector:
     def __init__(self, base_dir="data"):
         self.base_dir = Path(base_dir)
         self.setup_directories()
@@ -25,17 +25,17 @@ class BiasResearchDataCollector:
         }
         self.search_terms = self.generate_search_terms()
 
-        self.reddit_collector = RedditBiasCollector()
+        self.reddit_collector = RedditCollector()
         self.test_generator = TestCaseGenerator()
 
-    def generate_search_terms(self):
+    def search_terms(self):
         bias_terms = BiasTerms.get_dict()
     
         return {
         "gender_profession": [
             [f"{g} {p}"] 
             for g, p in product(bias_terms["genders"], bias_terms["professions"])
-        ],  # 2 × 6 = 12 terms
+        ], 
         
         "race_authority": [
             [f"{r} {a}"] 
@@ -43,7 +43,7 @@ class BiasResearchDataCollector:
         ]  
     }
 
-    def setup_directories(self):
+    def directories(self):
         dirs = [
             "raw/reddit",
             "processed",
@@ -55,7 +55,7 @@ class BiasResearchDataCollector:
             (self.base_dir / dir_path).mkdir(parents=True, exist_ok=True)
 
     
-    def setup_logging(self):
+    def logging(self):
         log_file = self.base_dir / "logs" / f"collection_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         
         logging.basicConfig(
@@ -68,7 +68,7 @@ class BiasResearchDataCollector:
         )
         self.logger = logging.getLogger(__name__)
     
-    def generate_template_test_cases(self):
+    def template_test_cases(self):
         self.logger.info("Generating template-based test cases")
         
         from reference import auto_generate_test_cases
@@ -81,7 +81,7 @@ class BiasResearchDataCollector:
         self.logger.info(f"Generated {len(test_cases)} test cases saved to {output_file}")
         return test_cases
     
-    def collect_reddit_data_for_period(self, period_name, year, posts_per_term=100):
+    def reddit_per_period(self, period_name, year, posts_per_term=100):
         self.logger.info(f"Collecting Reddit data for {period_name} ({year})")
         
         period_data = []
@@ -121,14 +121,14 @@ class BiasResearchDataCollector:
         
         return period_data
     
-    def collect_all_periods(self, posts_per_term=100):
+    def all_periods(self, posts_per_term=100):
         self.logger.info("Starting final data collection")
         self.logger.info(f"Target: {posts_per_term} posts per search term, per period")
         
         all_data = {}
         
         for period_name, year in self.periods.items():
-            period_data = self.collect_reddit_data_for_period(period_name, year, posts_per_term)
+            period_data = self.reddit_per_period(period_name, year, posts_per_term)
             all_data[period_name] = period_data
             
             total_collected = sum(len(data) for data in all_data.values())
@@ -136,7 +136,7 @@ class BiasResearchDataCollector:
         
         return all_data
     
-    def create_analysis_ready_dataset(self, all_data, test_cases):
+    def analysis_ready(self, all_data, test_cases):
         self.logger.info("Beginning dataset collection:")
         
         reddit_posts = []
@@ -172,7 +172,7 @@ class BiasResearchDataCollector:
         self.logger.info(f"Analysis-ready dataset saved to {output_file}")
         return dataset
     
-    def run_complete_collection(self, posts_per_term=100):
+    def final_collection(self, posts_per_term=100):
 
         start_time = datetime.now()
         self.logger.info("data collection begins:")
@@ -180,9 +180,9 @@ class BiasResearchDataCollector:
         
         try:
         
-            test_cases = self.generate_template_test_cases()
-            all_data = self.collect_all_periods(posts_per_term)
-            dataset = self.create_analysis_ready_dataset(all_data, test_cases)
+            test_cases = self.template_test_cases()
+            all_data = self.all_periods(posts_per_term)
+            dataset = self.analysis_ready(all_data, test_cases)
             
             end_time = datetime.now()
             duration = end_time - start_time
@@ -205,8 +205,8 @@ class BiasResearchDataCollector:
 
 def main():
     
-    collector = BiasResearchDataCollector()
-    dataset = collector.run_complete_collection(posts_per_term=100)
+    collector = BiasedDataCollector()
+    dataset = collector.final_collection(posts_per_term=100)
     print(f"Main dataset: data/bias_research_dataset.json")
     print(f"CSV files: data/reddit_posts.csv, data/template_test_cases.csv")
 
