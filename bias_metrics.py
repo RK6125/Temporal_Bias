@@ -5,6 +5,9 @@ from scipy import stats
 import pandas as pd
 
 class AdvancedBiasMetrics:
+      """
+    Provides quantitative bias analysis metrics including stereotype amplification and demographic consistency
+      """
     def __init__(self):
         self.baseline_stereotypes = {
             "woman_doctor": 0.65,      # Slight positive bias
@@ -27,7 +30,11 @@ class AdvancedBiasMetrics:
             "white_manager": 0.60,     # Slight positive
         }
     
-    def calculate_stereotype_amplification(self, model_results):
+    def stereotype_amplification(self, model_results):
+                """
+        Measures how much each model amplifies or reduces baseline stereotype bias. Compares model-level sentiment ratios against reference baseline stereotypes.
+.
+                """
         amplification_scores = {}
         
         for intersection, stats_dict in model_results.items():
@@ -51,7 +58,11 @@ class AdvancedBiasMetrics:
         
         return amplification_scores
     
-    def calculate_consistency_index(self, results_df, score_col, min_samples=5):
+    def consistency_index(self, results_df, score_col, min_samples=5):
+         """
+        Quantifies how consistent sentiment scores are across samples within each demographic group.
+        Uses coefficient of variation to produce a normalized stability score (0–1).
+         """
         consistency_by_group = {}
 
         demographic_scores = defaultdict(list)
@@ -93,9 +104,12 @@ class AdvancedBiasMetrics:
         
         return consistency_by_group
     
-    def calculate_effect_sizes(self, results_df, score_col, min_samples=10):
+    def effect_sizes(self, results_df, score_col, min_samples=10):
+          """
+        Performs statistical effect size tests (Cohen’s d and t-test) between pairs of demographic–context groups (e.g., woman vs. man doctors).
+          """
     
-        effect_sizes = {}
+        effect_size = {}
         
       
         comparisons = [
@@ -109,10 +123,10 @@ class AdvancedBiasMetrics:
         ]
         
         for comparison in comparisons:
-            group_a_data = self._filter_by_demographics(
+            group_a_data = self.filter_demo(
                 results_df, comparison['group_a'], comparison['context']
             )
-            group_b_data = self._filter_by_demographics(
+            group_b_data = self.filter_demo(
                 results_df, comparison['group_b'], comparison['context']
             )
             
@@ -134,9 +148,9 @@ class AdvancedBiasMetrics:
                     cohens_d = (mean_a - mean_b) / pooled_std
                     t_stat, p_value = stats.ttest_ind(scores_a, scores_b)
                     
-                    effect_sizes[comparison['name']] = {
+                    effect_size[comparison['name']] = {
                         'cohens_d': cohens_d,
-                        'magnitude': self._interpret_effect_size(cohens_d),
+                        'magnitude': self.interpret_effect(cohens_d),
                         'mean_group_a': mean_a,
                         'mean_group_b': mean_b,
                         'group_a_labels': comparison['group_a'],
@@ -148,9 +162,9 @@ class AdvancedBiasMetrics:
                          }
                     
         
-        return effect_sizes
+        return effect_size
     
-    def _filter_by_demographics(self, df, demo_groups, contexts):
+    def filter_demo(self, df, demo_groups, contexts):
         filtered_indices = []
         for idx, row in df.iterrows():
             features = row.get('features', {})
@@ -173,7 +187,8 @@ class AdvancedBiasMetrics:
             if has_demo and has_context:
                 filtered_indices.append(idx)
         return df.loc[filtered_indices] if filtered_indices else pd.DataFrame()
-    def _interpret_effect_size(self, cohens_d):
+        
+    def interpret_effect(self, cohens_d):
         abs_d = abs(cohens_d)
         if abs_d < 0.2:
             return "negligible"
