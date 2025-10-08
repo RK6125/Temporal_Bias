@@ -67,7 +67,7 @@ class RedditCollector:
                             
                         full_text = f"{post.title} {post.selftext}".strip()
                         
-                        if self._is_bias_relevant(full_text):
+                        if self.bias_relevance(full_text):
                             posts.append({
                                 "text": full_text,
                                 "title": post.title,
@@ -82,7 +82,7 @@ class RedditCollector:
                 print(f"Error with r/{subreddit_name}: {e}")
                 continue
         if posts:
-            unique_posts = self._deduplicate(posts)
+            unique_posts = self.deduplicate(posts)
             
             os.makedirs("data/raw/reddit", exist_ok=True)
             filename = f"data/raw/reddit/{'_'.join(keywords)}_{year}.json"
@@ -109,7 +109,7 @@ class RedditCollector:
         
         return unique
 
-def collect_final_data(keyword, year, limit=1000):
+def collect_reddit_data(keyword, year, limit=1000):
     collector = RedditCollector()
     return collector.collect_data(keyword, year, limit)
 
