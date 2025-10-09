@@ -23,7 +23,7 @@ In this project we investigate how social bias evolves in online language by ana
 
 1. **Data Collection**  
     Reddit posts scraped via PRAW from 20+ discussion forums (e.g., `r/AskReddit`, `r/TwoXChromosomes`, `r/engineering`, `r/medicine`) 
-    Texts filtered for co-occurrence of **demographic** and **professional** markers using a curated bias lexicon  
+    Texts filtered for occurrence of both **demographic** and **professional** markers
 
 2. **Model Evaluation**  
     Sentiment computed using four models  
