@@ -1,6 +1,6 @@
 # **Temporal Bias Analysis in Reddit Discourse (2017–2023)**  
 
-This project investigates **how social bias evolves in online language** by examining Reddit discussions across major sociopolitical events using multiple sentiment analysis models (**BERT**, **DistilBERT**, **RoBERTa**, and **TextBlob**).  
+In this project we investigate how social bias evolves in online language by analyzing Reddit discussions across major sociopolitical events using multiple sentiment analysis models : BERT, DistilBERT, RoBERTa, and TextBlob.
 
 ![Temporal Bias Trends](intersection_bias_heatmap.png)  
 *Temporal bias and intersectional shifts across Gender×Profession and Race×Authority pairs.*
@@ -19,28 +19,28 @@ This project investigates **how social bias evolves in online language** by exam
 
 ---
 
-## ⚙️ **Methodology**
+##  **Procedure**
 
 1. **Data Collection**  
     Reddit posts scraped via PRAW from 20+ discussion forums (e.g., `r/AskReddit`, `r/TwoXChromosomes`, `r/engineering`, `r/medicine`) 
     Texts filtered for co-occurrence of **demographic** and **professional** markers using a curated bias lexicon  
 
 2. **Model Evaluation**  
-    Sentiment computed via four models  
-    Intersectional results aggregated per demographic pair  
+    Sentiment computed using four models  
+    Intersectional results aggregated for each demographic pair  
 
 3. **Statistical Validation**  
-    **Chi-square independence tests** → measure significance of sentiment shifts
-    **Cohen’s d effect sizes** → quantify direction and magnitude of change
+    **Chi-square independence tests** to measure significance of sentiment shifts
+    **Cohen’s d effect sizes** to quantify direction and magnitude of change
 
 4. **Bias Metrics Computed**  
-    Stereotype amplification (vs. baseline societal stereotypes) 
-    Consistency index (variance within groups)
-    Temporal drift (year-wise change in polarity) 
+    Stereotype amplification vs. baseline societal stereotypes 
+    Consistency index : variance within groups
+    Temporal drift : year wise change in polarity 
 
 ---
 
-## 📊 **Key Findings**
+## **Key Findings**
 
  **Gendered Bias Reduction (Post-#MeToo):**  
   Female-profession pairs such as *woman doctor* and *woman engineer* show a measurable **15–20% increase in positive sentiment** relative to 2017 baselines.  
@@ -68,5 +68,5 @@ This project investigates **how social bias evolves in online language** by exam
 2. **Install Dependencies**
     pip install -r requirements.txt
 
-3. Run the whole pipeline flow
+3. **Run the whole pipeline flow**
     python main.py
