@@ -13,8 +13,8 @@ In this project we investigate how social bias evolves in online language by ana
 | **Objective** | Quantify how expressions of **gendered and racial bias** shift before and after major social movements such as #MeToo, COVID-19, and Black Lives Matter. |
 | **Dataset** | 6,000 Reddit posts collected, filtered to 2,634 high-quality samples for analysis. |
 | **Models Tested** | BERT, DistilBERT, RoBERTa, TextBlob (lexicon-based). |
-| **Intersections Studied** | Gender × Profession (e.g., *woman doctor*, *man engineer*) and Race × Authority (e.g., *black judge*, *white CEO*). |
-| **Periodization** | Pre-#MeToo (2017) → Post-#MeToo (2019) → COVID Era (2021) → Post-BLM (2023). |
+| **Intersections Studied** | Gender x Profession (e.g. *woman doctor*, *man engineer*) and Race x Authority (e.g. *black judge*, *white CEO*). |
+| **Periodization** | Pre-#MeToo (2017) → Post-#MeToo (2019) to COVID Era (2021) to Post-BLM (2023). |
 | **Outputs** | Temporal heatmaps, bias amplification scores, model comparison dashboards, and validation metrics. |
 
 ---
@@ -52,7 +52,7 @@ In this project we investigate how social bias evolves in online language by ana
   Transformer-based models (BERT/DistilBERT) detect subtler contextual bias than lexicon-based models (VADER/TextBlob), as seen in the figure below.  
 
 ![Model Comparison](model_comparison.png)  
-*Average sentiment divergence between contextual and lexicon models (2017 → 2023).*
+*Average sentiment divergence between contextual and lexicon models (2017 to 2023).*
 
 ---
 
