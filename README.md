@@ -66,7 +66,9 @@ In this project we investigate how social bias evolves in online language by ana
    cd Temporal_Bias
 
 2. **Install Dependencies**
+   ```bash
     pip install -r requirements.txt
 
 3. **Run the whole pipeline flow**
+   ```bash
     python main.py
